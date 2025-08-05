@@ -68,94 +68,115 @@ object FormEstudantesP: TFormEstudantesP
         TabOrder = 1
         Text = 'XXXXXX'
       end
-      object bClosePrinc: TButton
+      object bFormEstudantesPT1Close: TButton
         Left = 888
         Top = 20
         Width = 91
         Height = 25
         Caption = 'Voltar ao menu'
         TabOrder = 2
-        OnClick = bClosePrincClick
+        OnClick = bFormEstudantesPT1CloseClick
       end
     end
     object pFormEstudantesPT2: TPanel
       Left = 1
       Top = 123
       Width = 998
-      Height = 405
+      Height = 403
       Align = alClient
       TabOrder = 1
-      ExplicitTop = 129
-      ExplicitHeight = 304
-      object ListBox1: TListBox
-        Left = 24
-        Top = 6
-        Width = 998
-        Height = 354
+      ExplicitHeight = 382
+      object LFormEstudantesPT2: TListBox
+        Left = 1
+        Top = 1
+        Width = 996
+        Height = 401
+        Align = alClient
         ItemHeight = 15
         TabOrder = 0
+        ExplicitLeft = 49
+        ExplicitTop = 113
+        ExplicitHeight = 411
       end
     end
     object pFormEstudantesPT3: TPanel
+      AlignWithMargins = True
       Left = 1
-      Top = 528
+      Top = 526
       Width = 998
-      Height = 71
+      Height = 73
+      Margins.Left = 0
+      Margins.Top = 0
+      Margins.Right = 0
+      Margins.Bottom = 0
       Align = alBottom
       Padding.Left = 5
       Padding.Top = 5
       Padding.Right = 5
       Padding.Bottom = 5
       TabOrder = 2
-      object Button1: TButton
-        Left = 917
-        Top = 6
+      object bFormEstudantesPT3Salvar: TButton
+        AlignWithMargins = True
+        Left = 914
+        Top = 9
         Width = 75
-        Height = 59
+        Height = 55
         Align = alRight
-        Caption = 'Button1'
+        Caption = 'Salvar'
         TabOrder = 0
         ExplicitLeft = 923
+        ExplicitTop = 6
+        ExplicitHeight = 59
       end
-      object Button2: TButton
-        Left = 617
-        Top = 6
+      object bFormEstudantesPT3Adicionar: TButton
+        AlignWithMargins = True
+        Left = 590
+        Top = 9
         Width = 75
-        Height = 59
+        Height = 55
         Align = alRight
-        Caption = 'Button1'
+        Caption = 'Adicionar'
         TabOrder = 1
         ExplicitLeft = 505
+        ExplicitTop = 6
+        ExplicitHeight = 59
       end
-      object Button3: TButton
-        Left = 692
-        Top = 6
+      object bFormEstudantesPT3Alterar: TButton
+        AlignWithMargins = True
+        Left = 671
+        Top = 9
         Width = 75
-        Height = 59
+        Height = 55
         Align = alRight
-        Caption = 'Button1'
+        Caption = 'Alterar'
         TabOrder = 2
-        ExplicitLeft = 923
+        ExplicitLeft = 695
+        ExplicitTop = 5
+        ExplicitHeight = 61
       end
-      object Button4: TButton
-        Left = 767
-        Top = 6
+      object bFormEstudantesPT3Excluir: TButton
+        AlignWithMargins = True
+        Left = 752
+        Top = 9
         Width = 75
-        Height = 59
+        Height = 55
         Align = alRight
-        Caption = 'Button1'
+        Caption = 'Excluir'
         TabOrder = 3
         ExplicitLeft = 923
+        ExplicitTop = 6
+        ExplicitHeight = 59
       end
-      object Button5: TButton
-        Left = 842
-        Top = 6
+      object bFormEstudantesPT3Cancelar: TButton
+        AlignWithMargins = True
+        Left = 833
+        Top = 9
         Width = 75
-        Height = 59
+        Height = 55
         Align = alRight
-        Caption = 'Button1'
+        Caption = 'Cancelar'
         TabOrder = 4
-        ExplicitLeft = 923
+        ExplicitTop = 6
       end
     end
   end

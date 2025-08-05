@@ -15,15 +15,15 @@ type
     eFormEstudantesNome: TEdit;
     eFormEstudantesID: TEdit;
     pFormEstudantesPT2: TPanel;
-    bClosePrinc: TButton;
-    ListBox1: TListBox;
+    bFormEstudantesPT1Close: TButton;
+    LFormEstudantesPT2: TListBox;
     pFormEstudantesPT3: TPanel;
-    Button1: TButton;
-    Button2: TButton;
-    Button3: TButton;
-    Button4: TButton;
-    Button5: TButton;
-    procedure bClosePrincClick(Sender: TObject);
+    bFormEstudantesPT3Salvar: TButton;
+    bFormEstudantesPT3Adicionar: TButton;
+    bFormEstudantesPT3Alterar: TButton;
+    bFormEstudantesPT3Excluir: TButton;
+    bFormEstudantesPT3Cancelar: TButton;
+    procedure bFormEstudantesPT1CloseClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -37,7 +37,7 @@ implementation
 
 {$R *.dfm}
 
-procedure TFormEstudantesP.bClosePrincClick(Sender: TObject);
+procedure TFormEstudantesP.bFormEstudantesPT1CloseClick(Sender: TObject);
 begin
   FormEstudantesP.Close;
 end;
