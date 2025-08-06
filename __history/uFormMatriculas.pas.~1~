@@ -1,0 +1,41 @@
+unit uFormMatriculas;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Grids, Vcl.StdCtrls, Vcl.ExtCtrls;
+
+type
+  TForm1 = class(TForm)
+    pFormTurmasP: TPanel;
+    pFormTurmasPT1: TPanel;
+    LCdgProfessor: TLabel;
+    LCdgTurma: TLabel;
+    LCdgDisciplina: TLabel;
+    eFormTurmasCdgProfessor: TEdit;
+    bFormTurmasPT1Close: TButton;
+    eFormTurmasCdgTurma: TEdit;
+    eFormTurmasCdgDisciplina: TEdit;
+    pFormTurmasPT2: TPanel;
+    StrGridFormTurmasPT2: TStringGrid;
+    pFormTurmasPT3: TPanel;
+    bFormTurmasPT3Salvar: TButton;
+    bFormTurmasPT3Adicionar: TButton;
+    bFormTurmasPT3Alterar: TButton;
+    bFormTurmasPT3Excluir: TButton;
+    bFormTurmasPT3Cancelar: TButton;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+
+implementation
+
+{$R *.dfm}
+
+end.

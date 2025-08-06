@@ -123,14 +123,29 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
-        <DCCReference Include="Projects\uFormPrincipal.pas">
+        <DCCReference Include="uFormPrincipal.pas">
             <Form>FormPaginaPrincipal</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="uFormEstudantes.pas">
-            <Form>FormEstudantesP</Form>
+            <Form>FormEstudantesMain</Form>
+        </DCCReference>
+        <DCCReference Include="uFormProfessores.pas">
+            <Form>FormProfessoresMain</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="uFormDisciplinas.pas">
+            <Form>FormDisciplinasMain</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="uFormTurmas.pas">
+            <Form>FormTurmasMain</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="uFormMatriculas.pas">
+            <Form>FormMatriculasMain</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="uEstudantes.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

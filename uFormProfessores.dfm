@@ -1,0 +1,185 @@
+object FormProfessoresMain: TFormProfessoresMain
+  AlignWithMargins = True
+  Left = 0
+  Top = 0
+  Anchors = [akLeft, akTop, akRight, akBottom]
+  BorderIcons = [biSystemMenu]
+  BorderStyle = bsNone
+  ClientHeight = 600
+  ClientWidth = 1000
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -12
+  Font.Name = 'Segoe UI'
+  Font.Style = []
+  TextHeight = 15
+  object pFormProfessorP: TPanel
+    AlignWithMargins = True
+    Left = 0
+    Top = 0
+    Width = 1000
+    Height = 600
+    Margins.Left = 0
+    Margins.Top = 0
+    Margins.Right = 0
+    Margins.Bottom = 0
+    Align = alClient
+    TabOrder = 0
+    object pFormProfessorPT1: TPanel
+      Left = 1
+      Top = 1
+      Width = 998
+      Height = 162
+      Align = alTop
+      TabOrder = 0
+      object LNomeProfessor: TLabel
+        Left = 24
+        Top = 29
+        Width = 105
+        Height = 15
+        Caption = 'Nome do Professor:'
+      end
+      object LIDProfessor: TLabel
+        Left = 24
+        Top = 75
+        Width = 83
+        Height = 15
+        Caption = 'ID do Professor:'
+      end
+      object LCPFProfessores: TLabel
+        Left = 24
+        Top = 121
+        Width = 93
+        Height = 15
+        Caption = 'CPF do Professor:'
+      end
+      object eFormProfessorNome: TEdit
+        Left = 138
+        Top = 26
+        Width = 425
+        Height = 23
+        TabOrder = 0
+        Text = 'Escreva o nome completo'
+      end
+      object eFormProfessorID: TEdit
+        Left = 123
+        Top = 118
+        Width = 121
+        Height = 23
+        TabOrder = 1
+        Text = 'XXXXXXXXXXX'
+      end
+      object bFormProfessorPT1Close: TButton
+        Left = 888
+        Top = 20
+        Width = 91
+        Height = 25
+        Caption = 'Voltar ao menu'
+        TabOrder = 2
+        OnClick = bFormProfessorPT1CloseClick
+      end
+      object Edit1: TEdit
+        Left = 113
+        Top = 72
+        Width = 121
+        Height = 23
+        TabOrder = 3
+        Text = 'XXXXXX'
+      end
+    end
+    object pFormProfessorPT2: TPanel
+      Left = 1
+      Top = 163
+      Width = 998
+      Height = 436
+      Align = alClient
+      TabOrder = 1
+      ExplicitTop = 123
+      ExplicitHeight = 476
+      object StrGridFormProfessoresPT2: TStringGrid
+        Left = 1
+        Top = 1
+        Width = 996
+        Height = 434
+        Align = alClient
+        TabOrder = 0
+        ExplicitLeft = 24
+        ExplicitTop = 225
+        ExplicitHeight = 412
+        RowHeights = (
+          24
+          24
+          24
+          24
+          24)
+      end
+    end
+    object pFormProfessorPT3: TPanel
+      AlignWithMargins = True
+      Left = 1
+      Top = 526
+      Width = 998
+      Height = 73
+      Margins.Left = 0
+      Margins.Top = 0
+      Margins.Right = 0
+      Margins.Bottom = 0
+      Padding.Left = 5
+      Padding.Top = 5
+      Padding.Right = 5
+      Padding.Bottom = 5
+      TabOrder = 2
+      object bFormProfessorPT3Salvar: TButton
+        AlignWithMargins = True
+        Left = 914
+        Top = 9
+        Width = 75
+        Height = 55
+        Align = alRight
+        Caption = 'Salvar'
+        TabOrder = 0
+      end
+      object bFormProfessorPT3Adicionar: TButton
+        AlignWithMargins = True
+        Left = 590
+        Top = 9
+        Width = 75
+        Height = 55
+        Align = alRight
+        Caption = 'Adicionar'
+        TabOrder = 1
+      end
+      object bFormProfessorPT3Alterar: TButton
+        AlignWithMargins = True
+        Left = 671
+        Top = 9
+        Width = 75
+        Height = 55
+        Align = alRight
+        Caption = 'Alterar'
+        TabOrder = 2
+      end
+      object bFormProfessorPT3Excluir: TButton
+        AlignWithMargins = True
+        Left = 752
+        Top = 9
+        Width = 75
+        Height = 55
+        Align = alRight
+        Caption = 'Excluir'
+        TabOrder = 3
+      end
+      object bFormProfessorPT3Cancelar: TButton
+        AlignWithMargins = True
+        Left = 833
+        Top = 9
+        Width = 75
+        Height = 55
+        Align = alRight
+        Caption = 'Cancelar'
+        TabOrder = 4
+      end
+    end
+  end
+end

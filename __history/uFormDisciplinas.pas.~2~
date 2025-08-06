@@ -1,0 +1,39 @@
+unit uFormDisciplinas;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Grids, Vcl.StdCtrls, Vcl.ExtCtrls;
+
+type
+  TFormDisciplinasMain = class(TForm)
+    pFormDisciplinasP: TPanel;
+    pFormDisciplinasPT1: TPanel;
+    NomeDisciplinas: TLabel;
+    CdgDisciplinas: TLabel;
+    eFormDisciplinasNome: TEdit;
+    eFormDisciplinasCdg: TEdit;
+    bFormDisciplinasPT1Close: TButton;
+    pFormDisciplinasPT2: TPanel;
+    StrGridFormDisciplinasPT2: TStringGrid;
+    pFormDisciplinasPT3: TPanel;
+    bFormDisciplinasPT3Salvar: TButton;
+    bFormDisciplinasPT3Adicionar: TButton;
+    bFormDisciplinasPT3Alterar: TButton;
+    bFormDisciplinasPT3Excluir: TButton;
+    bFormDisciplinasPT3Cancelar: TButton;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FormDisciplinasMain: TFormDisciplinasMain;
+
+implementation
+
+{$R *.dfm}
+
+end.

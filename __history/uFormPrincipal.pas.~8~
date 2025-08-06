@@ -1,0 +1,40 @@
+unit uFormPrincipal;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls;
+
+type
+  TFormPrincipalMain = class(TForm)
+    PanelMain: TPanel;
+    bEstudantesMain: TButton;
+    LabelMain: TLabel;
+    bProfessoresMain: TButton;
+    bTurmasMain: TButton;
+    bDisciplinasMain: TButton;
+    bMatriculaMain: TButton;
+    bSairMain: TButton;
+    procedure bEstudantesMainClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FormPrincipalMain: TFormPrincipalMain;
+
+implementation
+
+{$R *.dfm}
+
+uses uFormEstudantes;
+
+procedure TFormPrincipalMain.bEstudantesMainClick(Sender: TObject);
+begin
+  FormEstudantesP.Show;
+end;
+
+end.

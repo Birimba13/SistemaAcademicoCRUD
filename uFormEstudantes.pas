@@ -4,25 +4,25 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls, Vcl.Grids;
 
 type
-  TFormEstudantesP = class(TForm)
+  TFormEstudantesMain = class(TForm)
     pFormEstudantesP: TPanel;
     pFormEstudantesPT1: TPanel;
-    NomeEstudante: TLabel;
-    IDEstudante: TLabel;
+    LNomeEstudante: TLabel;
+    LIDEstudante: TLabel;
     eFormEstudantesNome: TEdit;
     eFormEstudantesID: TEdit;
     pFormEstudantesPT2: TPanel;
     bFormEstudantesPT1Close: TButton;
-    LFormEstudantesPT2: TListBox;
     pFormEstudantesPT3: TPanel;
     bFormEstudantesPT3Salvar: TButton;
     bFormEstudantesPT3Adicionar: TButton;
     bFormEstudantesPT3Alterar: TButton;
     bFormEstudantesPT3Excluir: TButton;
     bFormEstudantesPT3Cancelar: TButton;
+    StrGridFormEstudantesPT2: TStringGrid;
     procedure bFormEstudantesPT1CloseClick(Sender: TObject);
   private
     { Private declarations }
@@ -31,15 +31,15 @@ type
   end;
 
 var
-  FormEstudantesP: TFormEstudantesP;
+  FormEstudantesMain: TFormEstudantesMain;
 
 implementation
 
 {$R *.dfm}
 
-procedure TFormEstudantesP.bFormEstudantesPT1CloseClick(Sender: TObject);
+procedure TFormEstudantesMain.bFormEstudantesPT1CloseClick(Sender: TObject);
 begin
-  FormEstudantesP.Close;
+  FormEstudantesMain.Close;
 end;
 
 end.

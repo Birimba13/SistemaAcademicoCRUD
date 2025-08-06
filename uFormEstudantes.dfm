@@ -1,4 +1,4 @@
-object FormEstudantesP: TFormEstudantesP
+object FormEstudantesMain: TFormEstudantesMain
   AlignWithMargins = True
   Left = 0
   Top = 0
@@ -6,6 +6,7 @@ object FormEstudantesP: TFormEstudantesP
   Margins.Top = 0
   Margins.Right = 0
   Margins.Bottom = 0
+  Anchors = [akLeft, akTop, akRight, akBottom]
   BorderIcons = [biSystemMenu]
   BorderStyle = bsNone
   ClientHeight = 600
@@ -29,8 +30,6 @@ object FormEstudantesP: TFormEstudantesP
     Margins.Bottom = 0
     Align = alClient
     TabOrder = 0
-    ExplicitLeft = 96
-    ExplicitTop = 40
     object pFormEstudantesPT1: TPanel
       Left = 1
       Top = 1
@@ -38,14 +37,14 @@ object FormEstudantesP: TFormEstudantesP
       Height = 122
       Align = alTop
       TabOrder = 0
-      object NomeEstudante: TLabel
+      object LNomeEstudante: TLabel
         Left = 24
         Top = 29
         Width = 108
         Height = 15
         Caption = 'Nome do Estudante:'
       end
-      object IDEstudante: TLabel
+      object LIDEstudante: TLabel
         Left = 24
         Top = 77
         Width = 86
@@ -85,18 +84,21 @@ object FormEstudantesP: TFormEstudantesP
       Height = 403
       Align = alClient
       TabOrder = 1
-      ExplicitHeight = 382
-      object LFormEstudantesPT2: TListBox
+      object StrGridFormEstudantesPT2: TStringGrid
         Left = 1
         Top = 1
         Width = 996
         Height = 401
         Align = alClient
-        ItemHeight = 15
         TabOrder = 0
-        ExplicitLeft = 49
-        ExplicitTop = 113
-        ExplicitHeight = 411
+        ExplicitTop = 6
+        ExplicitHeight = 390
+        ColWidths = (
+          64
+          64
+          64
+          64
+          64)
       end
     end
     object pFormEstudantesPT3: TPanel
@@ -124,9 +126,6 @@ object FormEstudantesP: TFormEstudantesP
         Align = alRight
         Caption = 'Salvar'
         TabOrder = 0
-        ExplicitLeft = 923
-        ExplicitTop = 6
-        ExplicitHeight = 59
       end
       object bFormEstudantesPT3Adicionar: TButton
         AlignWithMargins = True
@@ -137,9 +136,6 @@ object FormEstudantesP: TFormEstudantesP
         Align = alRight
         Caption = 'Adicionar'
         TabOrder = 1
-        ExplicitLeft = 505
-        ExplicitTop = 6
-        ExplicitHeight = 59
       end
       object bFormEstudantesPT3Alterar: TButton
         AlignWithMargins = True
@@ -150,9 +146,6 @@ object FormEstudantesP: TFormEstudantesP
         Align = alRight
         Caption = 'Alterar'
         TabOrder = 2
-        ExplicitLeft = 695
-        ExplicitTop = 5
-        ExplicitHeight = 61
       end
       object bFormEstudantesPT3Excluir: TButton
         AlignWithMargins = True
@@ -163,9 +156,6 @@ object FormEstudantesP: TFormEstudantesP
         Align = alRight
         Caption = 'Excluir'
         TabOrder = 3
-        ExplicitLeft = 923
-        ExplicitTop = 6
-        ExplicitHeight = 59
       end
       object bFormEstudantesPT3Cancelar: TButton
         AlignWithMargins = True
@@ -176,7 +166,6 @@ object FormEstudantesP: TFormEstudantesP
         Align = alRight
         Caption = 'Cancelar'
         TabOrder = 4
-        ExplicitTop = 6
       end
     end
   end

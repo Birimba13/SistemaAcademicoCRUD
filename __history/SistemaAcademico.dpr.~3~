@@ -1,0 +1,16 @@
+program SistemaAcademico;
+
+uses
+  Vcl.Forms,
+  uFormPrincipal in 'uFormPrincipal.pas' {FormPaginaPrincipal},
+  uFormEstudantes in 'uFormEstudantes.pas' {FormEstudantesP};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TFormPaginaPrincipal, FormPaginaPrincipal);
+  Application.CreateForm(TFormEstudantesP, FormEstudantesP);
+  Application.Run;
+end.
