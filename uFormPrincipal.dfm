@@ -30,7 +30,9 @@ object FormPrincipalMain: TFormPrincipalMain
     Align = alClient
     BevelOuter = bvNone
     BorderWidth = 1
+    Ctl3D = True
     Locked = True
+    ParentCtl3D = False
     TabOrder = 0
     ExplicitLeft = -5
     ExplicitTop = -5
