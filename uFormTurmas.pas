@@ -25,6 +25,7 @@ type
     eFormTurmasCdgTurma: TEdit;
     LCdgDisciplina: TLabel;
     eFormTurmasCdgDisciplina: TEdit;
+    procedure bFormTurmasPT1CloseClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -37,5 +38,10 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TFormTurmasMain.bFormTurmasPT1CloseClick(Sender: TObject);
+begin
+  FormTurmasMain.Close;
+end;
 
 end.

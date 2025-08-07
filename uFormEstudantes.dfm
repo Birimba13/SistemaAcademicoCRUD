@@ -84,21 +84,31 @@ object FormEstudantesMain: TFormEstudantesMain
       Height = 403
       Align = alClient
       TabOrder = 1
-      object StrGridFormEstudantesPT2: TStringGrid
+      object SBEstudantesPT2: TScrollBox
         Left = 1
         Top = 1
         Width = 996
         Height = 401
         Align = alClient
         TabOrder = 0
-        ExplicitTop = 6
-        ExplicitHeight = 390
-        ColWidths = (
-          64
-          64
-          64
-          64
-          64)
+        object StrGridFormEstudantesPT2: TStringGrid
+          Left = 0
+          Top = 0
+          Width = 992
+          Height = 397
+          Align = alClient
+          TabOrder = 0
+          ExplicitLeft = 1
+          ExplicitTop = 1
+          ExplicitWidth = 996
+          ExplicitHeight = 401
+          ColWidths = (
+            64
+            64
+            64
+            64
+            64)
+        end
       end
     end
     object pFormEstudantesPT3: TPanel

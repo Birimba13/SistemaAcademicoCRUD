@@ -1,0 +1,45 @@
+unit uFormEstudantes;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls, Vcl.Grids;
+
+type
+  TFormEstudantesMain = class(TForm)
+    pFormEstudantesP: TPanel;
+    pFormEstudantesPT1: TPanel;
+    LNomeEstudante: TLabel;
+    LIDEstudante: TLabel;
+    eFormEstudantesNome: TEdit;
+    eFormEstudantesID: TEdit;
+    pFormEstudantesPT2: TPanel;
+    bFormEstudantesPT1Close: TButton;
+    pFormEstudantesPT3: TPanel;
+    bFormEstudantesPT3Salvar: TButton;
+    bFormEstudantesPT3Adicionar: TButton;
+    bFormEstudantesPT3Alterar: TButton;
+    bFormEstudantesPT3Excluir: TButton;
+    bFormEstudantesPT3Cancelar: TButton;
+    StrGridFormEstudantesPT2: TStringGrid;
+    procedure bFormEstudantesPT1CloseClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FormEstudantesMain: TFormEstudantesMain;
+
+implementation
+
+{$R *.dfm}
+
+procedure TFormEstudantesMain.bFormEstudantesPT1CloseClick(Sender: TObject);
+begin
+  FormEstudantesMain.Close;
+end;
+
+end.

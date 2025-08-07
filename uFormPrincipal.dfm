@@ -6,7 +6,6 @@ object FormPrincipalMain: TFormPrincipalMain
   Margins.Top = 0
   Margins.Right = 0
   Margins.Bottom = 0
-  Align = alClient
   BorderStyle = bsNone
   Caption = 'FormPrincipalMain'
   ClientHeight = 639
@@ -34,8 +33,8 @@ object FormPrincipalMain: TFormPrincipalMain
     Locked = True
     ParentCtl3D = False
     TabOrder = 0
-    ExplicitLeft = -5
-    ExplicitTop = -5
+    ExplicitLeft = 21
+    ExplicitTop = 64
     object pFormPrincipalContentMain: TPanel
       AlignWithMargins = True
       Left = 351
@@ -67,13 +66,12 @@ object FormPrincipalMain: TFormPrincipalMain
         Align = alTop
         Alignment = taCenter
         Caption = 'Clique para acessar a '#225'rea desejada.'
-        ExplicitTop = 11
         ExplicitWidth = 187
       end
       object bFormPrincipalSair: TButton
         AlignWithMargins = True
         Left = 101
-        Top = 231
+        Top = 230
         Width = 108
         Height = 25
         Margins.Left = 100
@@ -84,13 +82,14 @@ object FormPrincipalMain: TFormPrincipalMain
         Caption = 'Sair do App'
         TabOrder = 0
         OnClick = bFormPrincipalSairClick
+        ExplicitTop = 231
       end
       object bFormPrincipalMatriculas: TButton
         AlignWithMargins = True
         Left = 101
         Top = 196
         Width = 108
-        Height = 25
+        Height = 24
         Margins.Left = 100
         Margins.Top = 0
         Margins.Right = 100
@@ -98,6 +97,7 @@ object FormPrincipalMain: TFormPrincipalMain
         Align = alTop
         Caption = 'Matr'#237'culas'
         TabOrder = 1
+        OnClick = bFormPrincipalMatriculasClick
       end
       object bFormPrincipalTurmas: TButton
         AlignWithMargins = True
@@ -112,6 +112,7 @@ object FormPrincipalMain: TFormPrincipalMain
         Align = alTop
         Caption = 'Turmas'
         TabOrder = 2
+        OnClick = bFormPrincipalTurmasClick
       end
       object bFormPrincipalDisciplinas: TButton
         AlignWithMargins = True

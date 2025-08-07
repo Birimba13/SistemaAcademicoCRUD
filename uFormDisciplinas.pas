@@ -16,13 +16,14 @@ type
     eFormDisciplinasCdg: TEdit;
     bFormDisciplinasPT1Close: TButton;
     pFormDisciplinasPT2: TPanel;
-    StrGridFormDisciplinasPT2: TStringGrid;
     pFormDisciplinasPT3: TPanel;
     bFormDisciplinasPT3Salvar: TButton;
     bFormDisciplinasPT3Adicionar: TButton;
     bFormDisciplinasPT3Alterar: TButton;
     bFormDisciplinasPT3Excluir: TButton;
     bFormDisciplinasPT3Cancelar: TButton;
+    SBDisciplinasPT2: TScrollBox;
+    StrGridFormDisciplinasPT2: TStringGrid;
     procedure bFormDisciplinasPT1CloseClick(Sender: TObject);
   private
     { Private declarations }

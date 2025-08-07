@@ -24,8 +24,6 @@ object FormDisciplinasMain: TFormDisciplinasMain
     Margins.Bottom = 0
     Align = alClient
     TabOrder = 0
-    ExplicitLeft = -376
-    ExplicitTop = -159
     object pFormDisciplinasPT1: TPanel
       Left = 1
       Top = 1
@@ -33,8 +31,8 @@ object FormDisciplinasMain: TFormDisciplinasMain
       Height = 122
       Align = alTop
       TabOrder = 0
-      ExplicitLeft = 2
-      ExplicitTop = -4
+      ExplicitLeft = 4
+      ExplicitTop = 49
       object LNomeDisciplinas: TLabel
         Left = 24
         Top = 29
@@ -55,7 +53,7 @@ object FormDisciplinasMain: TFormDisciplinasMain
         Width = 425
         Height = 23
         TabOrder = 0
-        Text = 'Escreva o nome completo'
+        Text = ' Escreva o nome da disciplina'
       end
       object eFormDisciplinasCdg: TEdit
         Left = 142
@@ -82,13 +80,35 @@ object FormDisciplinasMain: TFormDisciplinasMain
       Height = 403
       Align = alClient
       TabOrder = 1
-      object StrGridFormDisciplinasPT2: TStringGrid
+      object SBDisciplinasPT2: TScrollBox
         Left = 1
         Top = 1
         Width = 996
         Height = 401
         Align = alClient
         TabOrder = 0
+        ExplicitLeft = 376
+        ExplicitTop = 96
+        ExplicitWidth = 185
+        ExplicitHeight = 185
+        object StrGridFormDisciplinasPT2: TStringGrid
+          Left = 0
+          Top = 0
+          Width = 992
+          Height = 397
+          Align = alClient
+          TabOrder = 0
+          ExplicitLeft = 1
+          ExplicitTop = 1
+          ExplicitWidth = 996
+          ExplicitHeight = 401
+          ColWidths = (
+            64
+            64
+            64
+            64
+            64)
+        end
       end
     end
     object pFormDisciplinasPT3: TPanel

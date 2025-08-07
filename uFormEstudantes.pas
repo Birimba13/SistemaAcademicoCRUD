@@ -22,6 +22,7 @@ type
     bFormEstudantesPT3Alterar: TButton;
     bFormEstudantesPT3Excluir: TButton;
     bFormEstudantesPT3Cancelar: TButton;
+    SBEstudantesPT2: TScrollBox;
     StrGridFormEstudantesPT2: TStringGrid;
     procedure bFormEstudantesPT1CloseClick(Sender: TObject);
   private

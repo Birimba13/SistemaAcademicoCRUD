@@ -11,11 +11,9 @@ type
     pFormMatriculasP: TPanel;
     pFormMatriculasPT1: TPanel;
     LCdgTurma: TLabel;
-    LCdgMatricula: TLabel;
     LCdgEstudante: TLabel;
     eFormMatriculasCdgProfessor: TEdit;
     bFormMatriculasPT1Close: TButton;
-    eFormMatriculasCdgTurma: TEdit;
     eFormMatriculasCdgDisciplina: TEdit;
     pFormMatriculasPT2: TPanel;
     StrGridFormMatriculasPT2: TStringGrid;
@@ -25,6 +23,7 @@ type
     bFormMatriculasPT3Alterar: TButton;
     bFormMatriculasPT3Excluir: TButton;
     bFormMatriculasPT3Cancelar: TButton;
+    procedure bFormMatriculasPT1CloseClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -37,5 +36,10 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TFormMatriculasMain.bFormMatriculasPT1CloseClick(Sender: TObject);
+begin
+  FormMatriculasMain.Close;
+end;
 
 end.

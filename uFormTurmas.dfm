@@ -25,8 +25,6 @@ object FormTurmasMain: TFormTurmasMain
     Margins.Bottom = 0
     Align = alClient
     TabOrder = 0
-    ExplicitLeft = -376
-    ExplicitTop = -159
     object pFormTurmasPT1: TPanel
       Left = 1
       Top = 1
@@ -70,6 +68,7 @@ object FormTurmasMain: TFormTurmasMain
         Height = 25
         Caption = 'Voltar ao menu'
         TabOrder = 1
+        OnClick = bFormTurmasPT1CloseClick
       end
       object eFormTurmasCdgTurma: TEdit
         Left = 126
@@ -77,7 +76,7 @@ object FormTurmasMain: TFormTurmasMain
         Width = 121
         Height = 23
         TabOrder = 2
-        Text = 'XXXXXX'
+        Text = 'XXXX'
       end
       object eFormTurmasCdgDisciplina: TEdit
         Left = 142
@@ -95,8 +94,6 @@ object FormTurmasMain: TFormTurmasMain
       Height = 363
       Align = alClient
       TabOrder = 1
-      ExplicitTop = 123
-      ExplicitHeight = 403
       object StrGridFormTurmasPT2: TStringGrid
         Left = 1
         Top = 1
@@ -104,7 +101,6 @@ object FormTurmasMain: TFormTurmasMain
         Height = 361
         Align = alClient
         TabOrder = 0
-        ExplicitHeight = 401
       end
     end
     object pFormTurmasPT3: TPanel

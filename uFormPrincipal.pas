@@ -21,6 +21,8 @@ type
     procedure bFormPrincipalProfessoresClick(Sender: TObject);
     procedure bFormPrincipalSairClick(Sender: TObject);
     procedure bFormPrincipalDisciplinasClick(Sender: TObject);
+    procedure bFormPrincipalTurmasClick(Sender: TObject);
+    procedure bFormPrincipalMatriculasClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -34,7 +36,7 @@ implementation
 
 {$R *.dfm}
 
-uses uFormEstudantes, uFormProfessores, uFormDisciplinas;
+uses uFormEstudantes, uFormProfessores, uFormDisciplinas, uFormTurmas, uFormMatriculas;
 
 procedure TFormPrincipalMain.bFormPrincipalDisciplinasClick(Sender: TObject);
 begin
@@ -46,6 +48,11 @@ begin
   FormEstudantesMain.Show;
 end;
 
+procedure TFormPrincipalMain.bFormPrincipalMatriculasClick(Sender: TObject);
+begin
+  FormMatriculasMain.Show;
+end;
+
 procedure TFormPrincipalMain.bFormPrincipalProfessoresClick(Sender: TObject);
 begin
   FormProfessoresMain.Show;
@@ -54,6 +61,11 @@ end;
 procedure TFormPrincipalMain.bFormPrincipalSairClick(Sender: TObject);
 begin
   Close;
+end;
+
+procedure TFormPrincipalMain.bFormPrincipalTurmasClick(Sender: TObject);
+begin
+  FormTurmasMain.Show;
 end;
 
 end.
