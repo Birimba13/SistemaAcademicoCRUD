@@ -7,11 +7,9 @@ uses
 
 type
   TEstudante = class
-    protected
+    private
       IDEstudante: Integer;
       NomeEstudante: String;
-    public
-
   end;
 
 implementation

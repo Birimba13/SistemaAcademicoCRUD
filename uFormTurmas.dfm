@@ -94,13 +94,25 @@ object FormTurmasMain: TFormTurmasMain
       Height = 363
       Align = alClient
       TabOrder = 1
-      object StrGridFormTurmasPT2: TStringGrid
+      object SBTurmasPT2: TScrollBox
         Left = 1
         Top = 1
         Width = 996
         Height = 361
         Align = alClient
         TabOrder = 0
+        object StrGridFormTurmasPT2: TStringGrid
+          Left = 0
+          Top = 0
+          Width = 992
+          Height = 357
+          Align = alClient
+          TabOrder = 0
+          ExplicitLeft = 1
+          ExplicitTop = 1
+          ExplicitWidth = 996
+          ExplicitHeight = 361
+        end
       end
     end
     object pFormTurmasPT3: TPanel

@@ -95,35 +95,24 @@ object FormProfessoresMain: TFormProfessoresMain
       Height = 436
       Align = alClient
       TabOrder = 1
-      object SBProfessoresPT2: TScrollBox
+      ExplicitTop = 123
+      ExplicitHeight = 476
+      object StrGridFormProfessoresPT2: TStringGrid
         Left = 1
         Top = 1
         Width = 996
         Height = 434
         Align = alClient
         TabOrder = 0
-        ExplicitLeft = 368
-        ExplicitTop = 136
-        ExplicitWidth = 185
-        ExplicitHeight = 41
-        object StrGridFormProfessoresPT2: TStringGrid
-          Left = 0
-          Top = 0
-          Width = 992
-          Height = 430
-          Align = alClient
-          TabOrder = 0
-          ExplicitLeft = 1
-          ExplicitTop = 1
-          ExplicitWidth = 996
-          ExplicitHeight = 434
-          RowHeights = (
-            24
-            24
-            24
-            24
-            24)
-        end
+        ExplicitLeft = 24
+        ExplicitTop = 225
+        ExplicitHeight = 412
+        RowHeights = (
+          24
+          24
+          24
+          24
+          24)
       end
     end
     object pFormProfessorPT3: TPanel

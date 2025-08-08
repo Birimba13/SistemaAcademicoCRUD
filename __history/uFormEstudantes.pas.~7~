@@ -4,8 +4,7 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls, Vcl.Grids,
-  Data.DB, Vcl.DBGrids, uConn;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls, Vcl.Grids;
 
 type
   TFormEstudantesMain = class(TForm)
@@ -24,7 +23,7 @@ type
     bFormEstudantesPT3Excluir: TButton;
     bFormEstudantesPT3Cancelar: TButton;
     SBEstudantesPT2: TScrollBox;
-    DBGrid1: TDBGrid;
+    StrGridFormEstudantesPT2: TStringGrid;
     procedure bFormEstudantesPT1CloseClick(Sender: TObject);
   private
     { Private declarations }

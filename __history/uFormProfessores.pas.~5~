@@ -22,10 +22,9 @@ type
     bFormProfessorPT3Alterar: TButton;
     bFormProfessorPT3Excluir: TButton;
     bFormProfessorPT3Cancelar: TButton;
+    StrGridFormProfessoresPT2: TStringGrid;
     LCPFProfessores: TLabel;
     Edit1: TEdit;
-    SBProfessoresPT2: TScrollBox;
-    StrGridFormProfessoresPT2: TStringGrid;
     procedure bFormProfessorPT1CloseClick(Sender: TObject);
   private
     { Private declarations }

@@ -25,6 +25,8 @@ object FormMatriculasMain: TFormMatriculasMain
     Margins.Bottom = 0
     Align = alClient
     TabOrder = 0
+    ExplicitLeft = 232
+    ExplicitTop = -88
     object pFormMatriculasPT1: TPanel
       Left = 1
       Top = 1
@@ -79,16 +81,21 @@ object FormMatriculasMain: TFormMatriculasMain
       Height = 397
       Align = alClient
       TabOrder = 1
-      ExplicitTop = 163
-      ExplicitHeight = 363
-      object StrGridFormMatriculasPT2: TStringGrid
+      object SBMatriculasPT2: TScrollBox
         Left = 1
         Top = 1
         Width = 996
         Height = 395
         Align = alClient
         TabOrder = 0
-        ExplicitHeight = 361
+        object StrGridFormMatriculasPT2: TStringGrid
+          Left = 0
+          Top = 0
+          Width = 992
+          Height = 391
+          Align = alClient
+          TabOrder = 0
+        end
       end
     end
     object pFormMatriculasPT3: TPanel

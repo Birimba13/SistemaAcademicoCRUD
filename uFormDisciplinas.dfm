@@ -31,8 +31,6 @@ object FormDisciplinasMain: TFormDisciplinasMain
       Height = 122
       Align = alTop
       TabOrder = 0
-      ExplicitLeft = 4
-      ExplicitTop = 49
       object LNomeDisciplinas: TLabel
         Left = 24
         Top = 29
@@ -87,10 +85,6 @@ object FormDisciplinasMain: TFormDisciplinasMain
         Height = 401
         Align = alClient
         TabOrder = 0
-        ExplicitLeft = 376
-        ExplicitTop = 96
-        ExplicitWidth = 185
-        ExplicitHeight = 185
         object StrGridFormDisciplinasPT2: TStringGrid
           Left = 0
           Top = 0
@@ -98,10 +92,7 @@ object FormDisciplinasMain: TFormDisciplinasMain
           Height = 397
           Align = alClient
           TabOrder = 0
-          ExplicitLeft = 1
-          ExplicitTop = 1
-          ExplicitWidth = 996
-          ExplicitHeight = 401
+          ExplicitLeft = 3
           ColWidths = (
             64
             64

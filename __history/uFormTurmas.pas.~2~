@@ -14,6 +14,7 @@ type
     eFormTurmasCdgProfessor: TEdit;
     bFormTurmasPT1Close: TButton;
     pFormTurmasPT2: TPanel;
+    StrGridFormTurmasPT2: TStringGrid;
     pFormTurmasPT3: TPanel;
     bFormTurmasPT3Salvar: TButton;
     bFormTurmasPT3Adicionar: TButton;
@@ -24,8 +25,6 @@ type
     eFormTurmasCdgTurma: TEdit;
     LCdgDisciplina: TLabel;
     eFormTurmasCdgDisciplina: TEdit;
-    SBTurmasPT2: TScrollBox;
-    StrGridFormTurmasPT2: TStringGrid;
     procedure bFormTurmasPT1CloseClick(Sender: TObject);
   private
     { Private declarations }

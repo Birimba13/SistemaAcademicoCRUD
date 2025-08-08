@@ -4,11 +4,7 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Grids, Vcl.StdCtrls, Vcl.ExtCtrls,
-  FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Error, FireDAC.UI.Intf,
-  FireDAC.Phys.Intf, FireDAC.Stan.Def, FireDAC.Stan.Pool, FireDAC.Stan.Async,
-  FireDAC.Phys, FireDAC.Phys.PG, FireDAC.Phys.PGDef, FireDAC.VCLUI.Wait,
-  Data.DB, FireDAC.Comp.Client;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Grids, Vcl.StdCtrls, Vcl.ExtCtrls;
 
 type
   TFormMatriculasMain = class(TForm)
@@ -20,14 +16,14 @@ type
     bFormMatriculasPT1Close: TButton;
     eFormMatriculasCdgDisciplina: TEdit;
     pFormMatriculasPT2: TPanel;
-    SBMatriculasPT2: TScrollBox;
-    StrGridFormMatriculasPT2: TStringGrid;
     pFormMatriculasPT3: TPanel;
     bFormMatriculasPT3Salvar: TButton;
     bFormMatriculasPT3Adicionar: TButton;
     bFormMatriculasPT3Alterar: TButton;
     bFormMatriculasPT3Excluir: TButton;
     bFormMatriculasPT3Cancelar: TButton;
+    SBMatriculasPT2: TScrollBox;
+    StrGridFormMatriculasPT2: TStringGrid;
     procedure bFormMatriculasPT1CloseClick(Sender: TObject);
   private
     { Private declarations }

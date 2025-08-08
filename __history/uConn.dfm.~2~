@@ -1,0 +1,27 @@
+object DataModule1: TDataModule1
+  Height = 480
+  Width = 640
+  object FDConnection1: TFDConnection
+    Params.Strings = (
+      'User_Name=postgres'
+      'Password=root'
+      'Database=sistemaacademico'
+      'OidAsBlob=PG'
+      'DriverID=PG')
+    Connected = True
+    Left = 368
+    Top = 72
+  end
+  object FDPhysPgDriverLink1: TFDPhysPgDriverLink
+    VendorLib = 
+      'C:\Users\Jo'#227'o Jerosch\OneDrive\Documentos\Embarcadero\Studio\Pro' +
+      'jects\SistemaAcademicoCRUD\lib\libpq.dll'
+    Left = 240
+    Top = 74
+  end
+  object FDQuery1: TFDQuery
+    Connection = FDConnection1
+    Left = 304
+    Top = 192
+  end
+end
