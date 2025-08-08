@@ -8,7 +8,7 @@ uses
   uFormDisciplinas in 'uFormDisciplinas.pas' {FormDisciplinasMain},
   uFormTurmas in 'uFormTurmas.pas' {FormTurmasMain},
   uFormMatriculas in 'uFormMatriculas.pas' {FormMatriculasMain},
-  uEstudante in 'uEstudante.pas',
+  uEstudantes in 'uEstudantes.pas',
   uConn in 'uConn.pas' {DataModule1: TDataModule};
 
 {$R *.res}

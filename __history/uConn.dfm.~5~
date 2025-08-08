@@ -18,7 +18,7 @@ object DataModule1: TDataModule1
       'C:\Users\Jo'#227'o Jerosch\OneDrive\Documentos\Embarcadero\Studio\Pro' +
       'jects\SistemaAcademicoCRUD\lib\libpq.dll'
     Left = 88
-    Top = 58
+    Top = 50
   end
   object FDQuery1: TFDQuery
     Connection = FDConnection1
@@ -29,7 +29,7 @@ object DataModule1: TDataModule1
   end
   object DataSource1: TDataSource
     DataSet = FDQuery1
-    Left = 488
-    Top = 64
+    Left = 512
+    Top = 80
   end
 end

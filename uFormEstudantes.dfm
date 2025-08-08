@@ -17,6 +17,7 @@ object FormEstudantesMain: TFormEstudantesMain
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
+  OnCreate = FormCreate
   TextHeight = 15
   object pFormEstudantesP: TPanel
     AlignWithMargins = True
@@ -91,8 +92,6 @@ object FormEstudantesMain: TFormEstudantesMain
         Height = 401
         Align = alClient
         TabOrder = 0
-        ExplicitLeft = 2
-        ExplicitTop = -1
         object DBGrid1: TDBGrid
           Left = 0
           Top = 0
@@ -144,6 +143,7 @@ object FormEstudantesMain: TFormEstudantesMain
         Align = alRight
         Caption = 'Adicionar'
         TabOrder = 1
+        OnClick = bFormEstudantesPT3AdicionarClick
       end
       object bFormEstudantesPT3Alterar: TButton
         AlignWithMargins = True

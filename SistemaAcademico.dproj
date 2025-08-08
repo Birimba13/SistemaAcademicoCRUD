@@ -145,7 +145,7 @@
             <Form>FormMatriculasMain</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="uEstudantes.pas"/>
+        <DCCReference Include="uEstudante.pas"/>
         <DCCReference Include="uConn.pas">
             <Form>DataModule1</Form>
             <FormType>dfm</FormType>

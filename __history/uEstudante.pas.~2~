@@ -1,4 +1,4 @@
-unit uEstudantes;
+unit uEstudante;
 
 interface
 
@@ -6,7 +6,7 @@ uses
   System.sysUtils, System.Classes, System.Generics.Collections;
 
 type
-  TEstudante = class
+  TEstudante = class(TObject)
     protected
       IDEstudante: Integer;
       NomeEstudante: String;
