@@ -1,0 +1,55 @@
+unit uProfessores;
+
+interface
+
+uses
+  System.sysUtils, System.Classes, System.Generics.Collections;
+
+type
+  TProfessor = class
+    protected
+      IDProfessor: Integer;
+      NomeProfessor: String;
+      CPFProfessor: String;
+    public
+      function getIdProfessor:Integer;
+      procedure setIdProfessor(aId:Integer);
+      function getNomeProfessor:String;
+      procedure setNomeProfessor(aNome:String);
+      function getCPFProfessor:String;
+      procedure setCPFProfessor(aCPF:String);
+  end;
+
+implementation
+
+function TProfessor.getIdProfessor: Integer;
+begin
+  Result:=Self.IdProfessor;
+end;
+
+function TProfessor.getNomeProfessor: String;
+begin
+  Result:=Self.NomeProfessor;
+end;
+
+function TProfessor.getCPFProfessor: String;
+begin
+  Result:=Self.CPFProfessor;
+end;
+
+procedure TProfessor.setIdProfessor(aId: Integer);
+begin
+  Self.IdProfessor:=aId;
+end;
+
+procedure TProfessor.setNomeProfessor(aNome: String);
+begin
+  Self.NomeProfessor:=aNome;
+end;
+
+procedure TProfessor.setCPFProfessor(aCPF: String);
+begin
+  Self.CPFProfessor:=aCPF;
+end;
+
+end.

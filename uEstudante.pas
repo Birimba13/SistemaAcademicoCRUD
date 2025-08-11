@@ -11,20 +11,15 @@ type
       IDEstudante: Integer;
       NomeEstudante: String;
     public
-    function getIdEstudante:Integer;
-    procedure setIdEstudante(aId:Integer);
-    function getNomeEstudante:String;
-    procedure setNomeEstudante(aNome:String);
-    constructor Create(aNome:String);
+      function getIDEstudante:Integer;
+      procedure setIDEstudante(aId:Integer);
+      function getNomeEstudante:String;
+      procedure setNomeEstudante(aNome:String);
   end;
 
-
 implementation
-constructor TEstudante.Create(aNome: String);
-begin
-  Self.NomeEstudante:=aNome;
-end;
-function TEstudante.getIdEstudante: Integer;
+
+function TEstudante.getIDEstudante: Integer;
 begin
   Result:=Self.IdEstudante;
 end;
@@ -35,7 +30,7 @@ begin
 end;
 
 
-procedure TEstudante.setIdEstudante(aId: Integer);
+procedure TEstudante.setIDEstudante(aId: Integer);
 begin
   Self.IdEstudante:=aId;
 end;

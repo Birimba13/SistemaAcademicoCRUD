@@ -1,0 +1,50 @@
+unit uFormMatriculas;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Grids, Vcl.StdCtrls, Vcl.ExtCtrls,
+  FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Error, FireDAC.UI.Intf,
+  FireDAC.Phys.Intf, FireDAC.Stan.Def, FireDAC.Stan.Pool, FireDAC.Stan.Async,
+  FireDAC.Phys, FireDAC.Phys.PG, FireDAC.Phys.PGDef, FireDAC.VCLUI.Wait,
+  Data.DB, FireDAC.Comp.Client;
+
+type
+  TFormMatriculasMain = class(TForm)
+    pFormMatriculasP: TPanel;
+    pFormMatriculasPT1: TPanel;
+    LCdgTurma: TLabel;
+    LCdgEstudante: TLabel;
+    eFormMatriculasCdgProfessor: TEdit;
+    bFormMatriculasPT1Close: TButton;
+    eFormMatriculasCdgDisciplina: TEdit;
+    pFormMatriculasPT2: TPanel;
+    SBMatriculasPT2: TScrollBox;
+    StrGridFormMatriculasPT2: TStringGrid;
+    pFormMatriculasPT3: TPanel;
+    bFormMatriculasPT3Salvar: TButton;
+    bFormMatriculasPT3Adicionar: TButton;
+    bFormMatriculasPT3Alterar: TButton;
+    bFormMatriculasPT3Excluir: TButton;
+    bFormMatriculasPT3Cancelar: TButton;
+    procedure bFormMatriculasPT1CloseClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FormMatriculasMain: TFormMatriculasMain;
+
+implementation
+
+{$R *.dfm}
+
+procedure TFormMatriculasMain.bFormMatriculasPT1CloseClick(Sender: TObject);
+begin
+  FormMatriculasMain.Close;
+end;
+
+end.

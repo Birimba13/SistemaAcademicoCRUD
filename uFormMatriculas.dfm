@@ -25,13 +25,11 @@ object FormMatriculasMain: TFormMatriculasMain
     Margins.Bottom = 0
     Align = alClient
     TabOrder = 0
-    ExplicitLeft = 232
-    ExplicitTop = -88
     object pFormMatriculasPT1: TPanel
       Left = 1
       Top = 1
       Width = 998
-      Height = 128
+      Height = 122
       Align = alTop
       TabOrder = 0
       object LCdgTurma: TLabel
@@ -54,7 +52,7 @@ object FormMatriculasMain: TFormMatriculasMain
         Width = 121
         Height = 23
         TabOrder = 0
-        Text = 'XXXX'
+        TextHint = 'XXXX'
       end
       object bFormMatriculasPT1Close: TButton
         Left = 888
@@ -71,30 +69,34 @@ object FormMatriculasMain: TFormMatriculasMain
         Width = 121
         Height = 23
         TabOrder = 2
-        Text = 'XXXXXX'
+        TextHint = 'XXXXXX'
       end
     end
     object pFormMatriculasPT2: TPanel
       Left = 1
-      Top = 129
+      Top = 123
       Width = 998
-      Height = 397
+      Height = 403
       Align = alClient
       TabOrder = 1
+      ExplicitTop = 129
+      ExplicitHeight = 397
       object SBMatriculasPT2: TScrollBox
         Left = 1
         Top = 1
         Width = 996
-        Height = 395
+        Height = 401
         Align = alClient
         TabOrder = 0
+        ExplicitHeight = 395
         object StrGridFormMatriculasPT2: TStringGrid
           Left = 0
           Top = 0
           Width = 992
-          Height = 391
+          Height = 397
           Align = alClient
           TabOrder = 0
+          ExplicitHeight = 391
         end
       end
     end

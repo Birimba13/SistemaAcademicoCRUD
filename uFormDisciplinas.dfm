@@ -51,7 +51,7 @@ object FormDisciplinasMain: TFormDisciplinasMain
         Width = 425
         Height = 23
         TabOrder = 0
-        Text = ' Escreva o nome da disciplina'
+        TextHint = ' Escreva o nome da disciplina'
       end
       object eFormDisciplinasCdg: TEdit
         Left = 142
@@ -59,7 +59,7 @@ object FormDisciplinasMain: TFormDisciplinasMain
         Width = 121
         Height = 23
         TabOrder = 1
-        Text = 'XXXXXX'
+        TextHint = 'XXXXXX'
       end
       object bFormDisciplinasPT1Close: TButton
         Left = 888
@@ -92,7 +92,6 @@ object FormDisciplinasMain: TFormDisciplinasMain
           Height = 397
           Align = alClient
           TabOrder = 0
-          ExplicitLeft = 3
           ColWidths = (
             64
             64

@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls, Vcl.Grids,
-  Data.DB, Vcl.DBGrids, uConn, uEstudantes;
+  Data.DB, Vcl.DBGrids, uConn, uEstudante;
 
 type
   TFormEstudantesMain = class(TForm)
@@ -24,9 +24,8 @@ type
     bFormEstudantesPT3Excluir: TButton;
     bFormEstudantesPT3Cancelar: TButton;
     SBEstudantesPT2: TScrollBox;
-    DBGrid1: TDBGrid;
+    StringGrid1: TStringGrid;
     procedure bFormEstudantesPT1CloseClick(Sender: TObject);
-    procedure FormCreate(Sender: TObject);
     procedure bFormEstudantesPT3AdicionarClick(Sender: TObject);
   private
     { Private declarations }
@@ -52,13 +51,16 @@ var estudante: TEstudante;
 
 begin
   estudante:=TEstudante.Create;
-
-end;
-
-procedure TFormEstudantesMain.FormCreate(Sender: TObject);
-begin
-  DataModule1.FDConnection1.Connected := True;
-  DataModule1.FDQuery1.Open;
+  estudante.setIDEstudante(StrToInt(eFormEstudantesID.Text));
+  estudante.setNomeEstudante(eFormEstudantesNome.Text);
+  uConn.DataModule1.Conn.Connected:=True;
+  uConn.DataModule1.Qr.SQL.Text:='INSERT INTO estudantes VALUES ('+estudante.getIDEstudante.ToString+', '+estudante.getNomeEstudante.QuotedString+')';
+  try
+    uConn.DataModule1.Qr.ExecSQL;
+  finally
+    uConn.DataModule1.Qr.Close;
+    estudante.Free;
+  end;
 end;
 
 end.

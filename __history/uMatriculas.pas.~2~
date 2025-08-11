@@ -1,0 +1,59 @@
+unit uMatriculas;
+
+interface
+
+uses
+  System.sysUtils, System.Classes, System.Generics.Collections;
+
+type
+  TMatricula = class
+    protected
+      IdTurma: Integer;
+      IdEstudante: Integer;
+      IdMatricula: Integer;
+    public
+      function getIdEstudante:Integer;
+      procedure setIdEstudante(aIdEstudante:Integer);
+      function getIdTurma:Integer;
+      procedure setIdTurma(aIdTurma:Integer);
+      function getIdMatricula:Integer;
+      procedure setIdMatricula(aIdMatricula:Integer);
+      constructor Create(aIdMatricula:Integer);
+  end;
+
+implementation
+constructor TMatricula.Create(aIdMatricula: Integer);
+begin
+  Self.IdMatricula:=aIdMatricula;
+end;
+function TMAtricula.getIdEstudante: Integer;
+begin
+  Result:=Self.IdEstudante;
+end;
+
+function TMatricula.getIdTurma: Integer;
+begin
+  Result:=Self.IdTurma;
+end;
+
+function TMatricula.getIdMatricula: Integer;
+begin
+  Result:=Self.IdMatricula;
+end;
+
+procedure TMatricula.setIdEstudante(aIdEstudante: Integer);
+begin
+  Self.IdEstudante:=aIdEstudante;
+end;
+
+procedure TMatricula.setIdTurma(aIdTurma: Integer);
+begin
+  Self.IdTurma:=aIdTurma;
+end;
+
+procedure TMatricula.setIdMatricula(aIdMatricula: Integer);
+begin
+  Self.IdMatricula:=aIdMatricula;
+end;
+
+end.

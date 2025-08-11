@@ -17,7 +17,6 @@ object FormEstudantesMain: TFormEstudantesMain
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
-  OnCreate = FormCreate
   TextHeight = 15
   object pFormEstudantesP: TPanel
     AlignWithMargins = True
@@ -58,7 +57,7 @@ object FormEstudantesMain: TFormEstudantesMain
         Width = 425
         Height = 23
         TabOrder = 0
-        Text = 'Escreva o nome completo'
+        TextHint = 'Escreva o nome completo'
       end
       object eFormEstudantesID: TEdit
         Left = 116
@@ -66,7 +65,7 @@ object FormEstudantesMain: TFormEstudantesMain
         Width = 121
         Height = 23
         TabOrder = 1
-        Text = 'XXXXXX'
+        TextHint = 'XXXXXX'
       end
       object bFormEstudantesPT1Close: TButton
         Left = 888
@@ -92,19 +91,17 @@ object FormEstudantesMain: TFormEstudantesMain
         Height = 401
         Align = alClient
         TabOrder = 0
-        object DBGrid1: TDBGrid
+        object StringGrid1: TStringGrid
           Left = 0
           Top = 0
           Width = 992
           Height = 397
           Align = alClient
-          DataSource = DataModule1.DataSource1
           TabOrder = 0
-          TitleFont.Charset = DEFAULT_CHARSET
-          TitleFont.Color = clWindowText
-          TitleFont.Height = -12
-          TitleFont.Name = 'Segoe UI'
-          TitleFont.Style = []
+          ExplicitLeft = 191
+          ExplicitTop = 88
+          ExplicitWidth = 457
+          ExplicitHeight = 193
         end
       end
     end
