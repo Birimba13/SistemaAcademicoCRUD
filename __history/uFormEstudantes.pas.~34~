@@ -24,7 +24,7 @@ type
     bFormEstudantesPT3Excluir: TButton;
     bFormEstudantesPT3Cancelar: TButton;
     SBEstudantesPT2: TScrollBox;
-    DBGrid1: TDBGrid;
+    StringGrid1: TStringGrid;
     procedure bFormEstudantesPT1CloseClick(Sender: TObject);
     procedure bFormEstudantesPT3AdicionarClick(Sender: TObject);
   private
@@ -51,17 +51,17 @@ var estudante: TEstudante;
 
 begin
   estudante:=TEstudante.Create;
-  estudante.setIdEstudante(eFormEstudantesID);
-  estudante.setNomeEstudante(eFormEstudantesNome);
+  estudante.setIDEstudante(StrToInt(eFormEstudantesID.Text));
+  estudante.setNomeEstudante(eFormEstudantesNome.Text);
   uConn.DataModule1.Conn.Connected:=True;
-  estudante:=TEstudante.Create;
-  uConn.DataModule1.Qr.SQL.Text:='';
-  uConn.DataModule1.Qr.Active:=True;
+  uConn.DataModule1.Qr.SQL.Text:='INSERT INTO estudantes VALUES ('+estudante.getIDEstudante.ToString+', '+estudante.getNomeEstudante.QuotedString+')';
   try
-    uConn.DataModule1.Qr.Open(uConn.DataModule1.Qr.SQL.Text);
+    uConn.DataModule1.Qr.ExecSQL;
   finally
     uConn.DataModule1.Qr.Close;
+    estudante.Free;
   end;
 end;
+
 
 end.

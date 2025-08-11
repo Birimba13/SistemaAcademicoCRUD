@@ -91,17 +91,13 @@ object FormEstudantesMain: TFormEstudantesMain
         Height = 401
         Align = alClient
         TabOrder = 0
-        object StringGrid1: TStringGrid
+        object StrGridFormEstudantesPT2: TStringGrid
           Left = 0
           Top = 0
           Width = 992
           Height = 397
           Align = alClient
           TabOrder = 0
-          ExplicitLeft = 191
-          ExplicitTop = 88
-          ExplicitWidth = 457
-          ExplicitHeight = 193
         end
       end
     end

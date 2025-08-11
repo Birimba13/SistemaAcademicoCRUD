@@ -33,6 +33,7 @@ object FormProfessoresMain: TFormProfessoresMain
       Height = 162
       Align = alTop
       TabOrder = 0
+      ExplicitTop = -2
       object LNomeProfessor: TLabel
         Left = 24
         Top = 29
@@ -55,20 +56,21 @@ object FormProfessoresMain: TFormProfessoresMain
         Caption = 'CPF do Professor:'
       end
       object eFormProfessorNome: TEdit
-        Left = 138
-        Top = 26
+        Left = 135
+        Top = 21
         Width = 425
         Height = 23
         TabOrder = 0
-        Text = 'Escreva o nome completo'
+        TextHint = 'Escreva o nome completo'
       end
-      object eFormProfessorID: TEdit
+      object eFormProfessorCPF: TEdit
         Left = 123
         Top = 118
         Width = 121
         Height = 23
+        NumbersOnly = True
         TabOrder = 1
-        Text = 'XXXXXXXXXXX'
+        TextHint = 'XXXXXXXXXXX'
       end
       object bFormProfessorPT1Close: TButton
         Left = 888
@@ -79,13 +81,14 @@ object FormProfessoresMain: TFormProfessoresMain
         TabOrder = 2
         OnClick = bFormProfessorPT1CloseClick
       end
-      object Edit1: TEdit
+      object eFormProfessorID: TEdit
         Left = 113
         Top = 72
         Width = 121
         Height = 23
+        NumbersOnly = True
         TabOrder = 3
-        Text = 'XXXXXX'
+        TextHint = 'XXXXXX'
       end
     end
     object pFormProfessorPT2: TPanel
@@ -102,10 +105,6 @@ object FormProfessoresMain: TFormProfessoresMain
         Height = 434
         Align = alClient
         TabOrder = 0
-        ExplicitLeft = 368
-        ExplicitTop = 136
-        ExplicitWidth = 185
-        ExplicitHeight = 41
         object StrGridFormProfessoresPT2: TStringGrid
           Left = 0
           Top = 0
@@ -113,10 +112,9 @@ object FormProfessoresMain: TFormProfessoresMain
           Height = 430
           Align = alClient
           TabOrder = 0
-          ExplicitLeft = 1
-          ExplicitTop = 1
-          ExplicitWidth = 996
-          ExplicitHeight = 434
+          OnClick = StrGridFormProfessoresPT2Click
+          ExplicitLeft = -2
+          ExplicitTop = -3
           RowHeights = (
             24
             24
@@ -160,6 +158,7 @@ object FormProfessoresMain: TFormProfessoresMain
         Align = alRight
         Caption = 'Adicionar'
         TabOrder = 1
+        OnClick = bFormProfessorPT3AdicionarClick
       end
       object bFormProfessorPT3Alterar: TButton
         AlignWithMargins = True

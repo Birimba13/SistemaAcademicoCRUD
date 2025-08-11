@@ -24,9 +24,10 @@ type
     bFormEstudantesPT3Excluir: TButton;
     bFormEstudantesPT3Cancelar: TButton;
     SBEstudantesPT2: TScrollBox;
-    DBGrid1: TDBGrid;
+    StrGridFormEstudantesPT2: TStringGrid;
     procedure bFormEstudantesPT1CloseClick(Sender: TObject);
     procedure bFormEstudantesPT3AdicionarClick(Sender: TObject);
+    procedure LoadDataToGrid(Sender: TObject);
   private
     { Private declarations }
   public
@@ -55,7 +56,6 @@ begin
   estudante.setNomeEstudante(eFormEstudantesNome.Text);
   uConn.DataModule1.Conn.Connected:=True;
   uConn.DataModule1.Qr.SQL.Text:='INSERT INTO estudantes VALUES ('+estudante.getIDEstudante.ToString+', '+estudante.getNomeEstudante.QuotedString+')';
-  uConn.DataModule1.Qr.Active:=True;
   try
     uConn.DataModule1.Qr.ExecSQL;
   finally
@@ -64,4 +64,32 @@ begin
   end;
 end;
 
+procedure TFormEstudantesMain.LoadDataToGrid;
+
+var
+  i, j: Integer;
+  begin
+    uConn.DataModule1.Qr.Open;
+    uConn.DataModule1.Qr.SQL.Text := 'SELECT nomeestudante, idestudante from estudantes';
+
+    StrGridFormEstudantesPT2.RowCount:= uConn.DataModule1.Qr.RecordCount + 1;
+    StrGridFormEstudantesPT2.ColCount:= uConn.DataModule1.Qr.FieldCount;
+
+    for i := 0 to uConn.DataModule1.Qr.FieldCount - 1 do
+    begin
+      StrGridFormEstudantesPT2.Cells[i, 0] := uConn.DataModule1.Qr.Fields[i].FieldName;
+    end;
+
+    j := 1;
+    while not uConn.DataModule1.Qr.Eof do
+    begin
+      for i := 0 to uConn.DataModule1.Qr.FieldCount - 1 do
+      begin
+        StrGridFormEstudantesPT2.Cells[i, j] := uConn.DataModule1.Qr.Fields[i].AsString;
+      end;
+      uConn.DataModule1.Qr.Next;
+      Inc(j);
+      uConn.DataModule1.Qr.Close;
+    end;
+  end;
 end.

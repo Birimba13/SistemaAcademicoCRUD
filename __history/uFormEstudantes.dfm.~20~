@@ -1,7 +1,11 @@
-object FormProfessoresMain: TFormProfessoresMain
+object FormEstudantesMain: TFormEstudantesMain
   AlignWithMargins = True
   Left = 0
   Top = 0
+  Margins.Left = 0
+  Margins.Top = 0
+  Margins.Right = 0
+  Margins.Bottom = 0
   Anchors = [akLeft, akTop, akRight, akBottom]
   BorderIcons = [biSystemMenu]
   BorderStyle = bsNone
@@ -14,7 +18,7 @@ object FormProfessoresMain: TFormProfessoresMain
   Font.Name = 'Segoe UI'
   Font.Style = []
   TextHeight = 15
-  object pFormProfessorP: TPanel
+  object pFormEstudantesP: TPanel
     AlignWithMargins = True
     Left = 0
     Top = 0
@@ -26,35 +30,28 @@ object FormProfessoresMain: TFormProfessoresMain
     Margins.Bottom = 0
     Align = alClient
     TabOrder = 0
-    object pFormProfessorPT1: TPanel
+    object pFormEstudantesPT1: TPanel
       Left = 1
       Top = 1
       Width = 998
-      Height = 162
+      Height = 122
       Align = alTop
       TabOrder = 0
-      object LNomeProfessor: TLabel
+      object LNomeEstudante: TLabel
         Left = 24
         Top = 29
-        Width = 105
+        Width = 108
         Height = 15
-        Caption = 'Nome do Professor:'
+        Caption = 'Nome do Estudante:'
       end
-      object LIDProfessor: TLabel
+      object LIDEstudante: TLabel
         Left = 24
-        Top = 75
-        Width = 83
+        Top = 77
+        Width = 86
         Height = 15
-        Caption = 'ID do Professor:'
+        Caption = 'ID do Estudante:'
       end
-      object LCPFProfessores: TLabel
-        Left = 24
-        Top = 121
-        Width = 93
-        Height = 15
-        Caption = 'CPF do Professor:'
-      end
-      object eFormProfessorNome: TEdit
+      object eFormEstudantesNome: TEdit
         Left = 138
         Top = 26
         Width = 425
@@ -62,63 +59,51 @@ object FormProfessoresMain: TFormProfessoresMain
         TabOrder = 0
         TextHint = 'Escreva o nome completo'
       end
-      object eFormProfessorCPF: TEdit
-        Left = 123
-        Top = 118
+      object eFormEstudantesID: TEdit
+        Left = 116
+        Top = 74
         Width = 121
         Height = 23
         TabOrder = 1
-        TextHint = 'XXXXXXXXXXX'
+        TextHint = 'XXXXXX'
       end
-      object bFormProfessorPT1Close: TButton
+      object bFormEstudantesPT1Close: TButton
         Left = 888
         Top = 20
         Width = 91
         Height = 25
         Caption = 'Voltar ao menu'
         TabOrder = 2
-        OnClick = bFormProfessorPT1CloseClick
-      end
-      object eFormProfessorID: TEdit
-        Left = 113
-        Top = 72
-        Width = 121
-        Height = 23
-        TabOrder = 3
-        TextHint = 'XXXXXX'
+        OnClick = bFormEstudantesPT1CloseClick
       end
     end
-    object pFormProfessorPT2: TPanel
+    object pFormEstudantesPT2: TPanel
       Left = 1
-      Top = 163
+      Top = 123
       Width = 998
-      Height = 436
+      Height = 403
       Align = alClient
       TabOrder = 1
-      object SBProfessoresPT2: TScrollBox
+      object SBEstudantesPT2: TScrollBox
         Left = 1
         Top = 1
         Width = 996
-        Height = 434
+        Height = 401
         Align = alClient
         TabOrder = 0
-        object StrGridFormProfessoresPT2: TStringGrid
+        object StrGridFormEstudantesPT2: TStringGrid
           Left = 0
           Top = 0
           Width = 992
-          Height = 430
+          Height = 397
           Align = alClient
           TabOrder = 0
-          RowHeights = (
-            24
-            24
-            24
-            24
-            24)
+          ExplicitLeft = 3
+          ExplicitTop = 3
         end
       end
     end
-    object pFormProfessorPT3: TPanel
+    object pFormEstudantesPT3: TPanel
       AlignWithMargins = True
       Left = 1
       Top = 526
@@ -128,12 +113,13 @@ object FormProfessoresMain: TFormProfessoresMain
       Margins.Top = 0
       Margins.Right = 0
       Margins.Bottom = 0
+      Align = alBottom
       Padding.Left = 5
       Padding.Top = 5
       Padding.Right = 5
       Padding.Bottom = 5
       TabOrder = 2
-      object bFormProfessorPT3Salvar: TButton
+      object bFormEstudantesPT3Salvar: TButton
         AlignWithMargins = True
         Left = 914
         Top = 9
@@ -143,7 +129,7 @@ object FormProfessoresMain: TFormProfessoresMain
         Caption = 'Salvar'
         TabOrder = 0
       end
-      object bFormProfessorPT3Adicionar: TButton
+      object bFormEstudantesPT3Adicionar: TButton
         AlignWithMargins = True
         Left = 590
         Top = 9
@@ -152,9 +138,9 @@ object FormProfessoresMain: TFormProfessoresMain
         Align = alRight
         Caption = 'Adicionar'
         TabOrder = 1
-        OnClick = bFormProfessorPT3AdicionarClick
+        OnClick = bFormEstudantesPT3AdicionarClick
       end
-      object bFormProfessorPT3Alterar: TButton
+      object bFormEstudantesPT3Alterar: TButton
         AlignWithMargins = True
         Left = 671
         Top = 9
@@ -164,7 +150,7 @@ object FormProfessoresMain: TFormProfessoresMain
         Caption = 'Alterar'
         TabOrder = 2
       end
-      object bFormProfessorPT3Excluir: TButton
+      object bFormEstudantesPT3Excluir: TButton
         AlignWithMargins = True
         Left = 752
         Top = 9
@@ -174,7 +160,7 @@ object FormProfessoresMain: TFormProfessoresMain
         Caption = 'Excluir'
         TabOrder = 3
       end
-      object bFormProfessorPT3Cancelar: TButton
+      object bFormEstudantesPT3Cancelar: TButton
         AlignWithMargins = True
         Left = 833
         Top = 9

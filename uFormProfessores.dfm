@@ -33,7 +33,6 @@ object FormProfessoresMain: TFormProfessoresMain
       Height = 162
       Align = alTop
       TabOrder = 0
-      ExplicitTop = -2
       object LNomeProfessor: TLabel
         Left = 24
         Top = 29
@@ -112,9 +111,6 @@ object FormProfessoresMain: TFormProfessoresMain
           Height = 430
           Align = alClient
           TabOrder = 0
-          OnClick = StrGridFormProfessoresPT2Click
-          ExplicitLeft = -2
-          ExplicitTop = -3
           RowHeights = (
             24
             24
