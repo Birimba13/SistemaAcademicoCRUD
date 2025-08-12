@@ -12,9 +12,9 @@ type
     pFormEstudantesP: TPanel;
     pFormEstudantesPT1: TPanel;
     LNomeEstudante: TLabel;
-    LIDEstudante: TLabel;
+    LCPFEstudante: TLabel;
     eFormEstudantesNome: TEdit;
-    eFormEstudantesID: TEdit;
+    eFormEstudantesCPF: TEdit;
     pFormEstudantesPT2: TPanel;
     bFormEstudantesPT1Close: TButton;
     pFormEstudantesPT3: TPanel;
@@ -30,6 +30,8 @@ type
     procedure FormShow(Sender: TObject);
     procedure bFormEstudantesPT3ExcluirClick(Sender: TObject);
     procedure bFormEstudantesPT3CancelarClick(Sender: TObject);
+    procedure bFormEstudantesPT3AlterarClick(Sender: TObject);
+    procedure bFormEstudantesPT3SalvarClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -47,7 +49,7 @@ var
   i, j: Integer;
   begin
     uConn.DataModule1.Qr.Close;
-    uConn.DataModule1.Qr.SQL.Text := 'SELECT nomeestudante, idestudante from estudantes';
+    uConn.DataModule1.Qr.SQL.Text := 'SELECT nomeestudante, idestudante, cpfestudante from estudantes';
     uConn.DataModule1.Qr.Open;
     StrGridFormEstudantesPT2.RowCount:= uConn.DataModule1.Qr.RecordCount + 1;
     StrGridFormEstudantesPT2.ColCount:= uConn.DataModule1.Qr.FieldCount;
@@ -79,26 +81,40 @@ var estudante: TEstudante;
 
 begin
   estudante:=TEstudante.Create;
-  estudante.setIDEstudante(StrToInt(eFormEstudantesID.Text));
+  estudante.setCPFEstudante(StrToInt(eFormEstudantesCPF.Text));
   estudante.setNomeEstudante(eFormEstudantesNome.Text);
   uConn.DataModule1.Conn.Connected:=True;
-  uConn.DataModule1.Qr.SQL.Text:='INSERT INTO estudantes VALUES ('+estudante.getIDEstudante.ToString+', '+estudante.getNomeEstudante.QuotedString+')';
+  uConn.DataModule1.Qr.SQL.Text:='INSERT INTO estudantes (cpfestudante, nomeestudante) VALUES ('+estudante.getCPFEstudante.ToString+', '+estudante.getNomeEstudante.QuotedString+')';
   try
     uConn.DataModule1.Qr.ExecSQL;
   finally
     uConn.DataModule1.Qr.Close;
     estudante.Free;
-    eFormEstudantesID.Clear;
+    eFormEstudantesCPF.Clear;
     eFormEstudantesNome.Clear;
     AtualizarGrid(StrGridFormEstudantesPT2);
   end;
 end;
 
 
+procedure TFormEstudantesMain.bFormEstudantesPT3AlterarClick(Sender: TObject);
+
+var
+  LinhaSelecionada: Integer;
+  IdEstudanteAtualizar: String;
+  NovoNome: String;
+begin
+  LinhaSelecionada := StrGridFormEstudantesPT2.Row;
+  if (LinhaSelecionada > 0) then begin
+    eFormEstudantesNome.Text:= StrGridFormEstudantesPT2.Cells[0, LinhaSelecionada];
+    eFormEstudantesCPF.Text:= StrGridFormEstudantesPT2.Cells[2, LinhaSelecionada];
+  end;
+end;
+
 procedure TFormEstudantesMain.bFormEstudantesPT3CancelarClick(Sender: TObject);
 begin
-
-  eFormEstudantesID.Clear;
+  pFormEstudantesP.SetFocus;
+  eFormEstudantesCPF.Clear;
   eFormEstudantesNome.Clear;
 end;
 
@@ -124,6 +140,21 @@ begin
   begin
     MessageDlg('Selecione um estudante para excluir.', mtInformation, [mbOK], 0);
   end;
+end;
+
+procedure TFormEstudantesMain.bFormEstudantesPT3SalvarClick(Sender: TObject);
+var IdEstudanteAtualizar:Integer;
+begin
+  IdEstudanteAtualizar := StrToInt(StrGridFormEstudantesPT2.Cells[1, StrGridFormEstudantesPT2.Row]);
+  uConn.DataModule1.Qr.Close;
+  uConn.DataModule1.Qr.SQL.Text := 'UPDATE estudantes SET nomeestudante = :novoNome, cpfestudante = :cpf WHERE idestudante = :eid';
+  uConn.DataModule1.Qr.ParamByName('eid').AsInteger := IdEstudanteAtualizar;
+  uConn.DataModule1.Qr.ParamByName('novoNome').AsString := eFormEstudantesNome.Text;
+  uConn.DataModule1.Qr.ParamByName('cpf').AsInteger := StrToInt(eFormEstudantesCPF.Text);
+  uConn.DataModule1.Qr.ExecSQL;
+  eFormEstudantesCPF.Text := '';
+  eFormEstudantesNome.Text := '';
+  AtualizarGrid(StrGridFormEstudantesPT2);
 end;
 
 procedure TFormEstudantesMain.FormShow(Sender: TObject);

@@ -25,10 +25,10 @@ type
     procedure bFormPrincipalMatriculasClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
   private
-    { Private declarations }
+
     Data: TDataModule1;
   public
-    { Public declarations }
+
   end;
 
 var
@@ -80,7 +80,7 @@ begin
   Data.Qr.Active:=True;
   Data.Qr.Open(Data.Qr.SQL.Text);
   try
-    estudante.setIdEstudante(Data.Qr.FieldByName('IDEstudante').AsInteger);
+    estudante.setCPFEstudante(Data.Qr.FieldByName('CPFEstudante').AsInteger);
     estudante.setNomeEstudante(Data.Qr.FieldByName('NomeEstudante').AsString);
   finally
     Data.Qr.Close;

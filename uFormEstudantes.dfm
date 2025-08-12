@@ -38,6 +38,7 @@ object FormEstudantesMain: TFormEstudantesMain
       Height = 122
       Align = alTop
       TabOrder = 0
+      ExplicitTop = -2
       object LNomeEstudante: TLabel
         Left = 24
         Top = 29
@@ -45,12 +46,12 @@ object FormEstudantesMain: TFormEstudantesMain
         Height = 15
         Caption = 'Nome do Estudante:'
       end
-      object LIDEstudante: TLabel
+      object LCPFEstudante: TLabel
         Left = 24
         Top = 77
-        Width = 86
+        Width = 96
         Height = 15
-        Caption = 'ID do Estudante:'
+        Caption = 'CPF do Estudante:'
       end
       object eFormEstudantesNome: TEdit
         Left = 138
@@ -60,8 +61,8 @@ object FormEstudantesMain: TFormEstudantesMain
         TabOrder = 0
         TextHint = 'Escreva o nome completo'
       end
-      object eFormEstudantesID: TEdit
-        Left = 116
+      object eFormEstudantesCPF: TEdit
+        Left = 126
         Top = 74
         Width = 121
         Height = 23
@@ -127,6 +128,7 @@ object FormEstudantesMain: TFormEstudantesMain
         Align = alRight
         Caption = 'Salvar'
         TabOrder = 0
+        OnClick = bFormEstudantesPT3SalvarClick
       end
       object bFormEstudantesPT3Adicionar: TButton
         AlignWithMargins = True
@@ -148,6 +150,7 @@ object FormEstudantesMain: TFormEstudantesMain
         Align = alRight
         Caption = 'Alterar'
         TabOrder = 2
+        OnClick = bFormEstudantesPT3AlterarClick
       end
       object bFormEstudantesPT3Excluir: TButton
         AlignWithMargins = True

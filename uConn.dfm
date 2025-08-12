@@ -9,7 +9,6 @@ object DataModule1: TDataModule1
       'OidAsBlob=PG'
       'Server=localhost'
       'DriverID=PG')
-    Connected = True
     Left = 312
     Top = 64
   end
@@ -23,6 +22,7 @@ object DataModule1: TDataModule1
   object Qr: TFDQuery
     Connection = Conn
     SQL.Strings = (
+      'select * from estudantes'
       '')
     Left = 408
     Top = 64

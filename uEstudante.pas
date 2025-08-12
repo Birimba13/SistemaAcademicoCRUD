@@ -8,20 +8,20 @@ uses
 type
   TEstudante = class
     protected
-      IDEstudante: Integer;
+      CPFEstudante: Integer;
       NomeEstudante: String;
     public
-      function getIDEstudante:Integer;
-      procedure setIDEstudante(aId:Integer);
+      function getCPFEstudante:Integer;
+      procedure setCPFEstudante(aCPF:Integer);
       function getNomeEstudante:String;
       procedure setNomeEstudante(aNome:String);
   end;
 
 implementation
 
-function TEstudante.getIDEstudante: Integer;
+function TEstudante.getCPFEstudante: Integer;
 begin
-  Result:=Self.IdEstudante;
+  Result:=Self.CPFEstudante;
 end;
 
 function TEstudante.getNomeEstudante: String;
@@ -30,9 +30,9 @@ begin
 end;
 
 
-procedure TEstudante.setIDEstudante(aId: Integer);
+procedure TEstudante.setCPFEstudante(aCPF: Integer);
 begin
-  Self.IdEstudante:=aId;
+  Self.CPFEstudante:=aCPF;
 end;
 
 procedure TEstudante.setNomeEstudante(aNome: String);
