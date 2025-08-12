@@ -17,6 +17,7 @@ object FormEstudantesMain: TFormEstudantesMain
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
+  OnShow = FormShow
   TextHeight = 15
   object pFormEstudantesP: TPanel
     AlignWithMargins = True
@@ -157,6 +158,7 @@ object FormEstudantesMain: TFormEstudantesMain
         Align = alRight
         Caption = 'Excluir'
         TabOrder = 3
+        OnClick = bFormEstudantesPT3ExcluirClick
       end
       object bFormEstudantesPT3Cancelar: TButton
         AlignWithMargins = True
@@ -167,6 +169,7 @@ object FormEstudantesMain: TFormEstudantesMain
         Align = alRight
         Caption = 'Cancelar'
         TabOrder = 4
+        OnClick = bFormEstudantesPT3CancelarClick
       end
     end
   end

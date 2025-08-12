@@ -27,7 +27,9 @@ type
     StrGridFormEstudantesPT2: TStringGrid;
     procedure bFormEstudantesPT1CloseClick(Sender: TObject);
     procedure bFormEstudantesPT3AdicionarClick(Sender: TObject);
-    procedure LoadDataToGrid(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure bFormEstudantesPT3ExcluirClick(Sender: TObject);
+    procedure bFormEstudantesPT3CancelarClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -40,32 +42,7 @@ var
 implementation
 
 {$R *.dfm}
-
-procedure TFormEstudantesMain.bFormEstudantesPT1CloseClick(Sender: TObject);
-begin
-  FormEstudantesMain.Close;
-end;
-
-procedure TFormEstudantesMain.bFormEstudantesPT3AdicionarClick(Sender: TObject);
-
-var estudante: TEstudante;
-
-begin
-  estudante:=TEstudante.Create;
-  estudante.setIDEstudante(StrToInt(eFormEstudantesID.Text));
-  estudante.setNomeEstudante(eFormEstudantesNome.Text);
-  uConn.DataModule1.Conn.Connected:=True;
-  uConn.DataModule1.Qr.SQL.Text:='INSERT INTO estudantes VALUES ('+estudante.getIDEstudante.ToString+', '+estudante.getNomeEstudante.QuotedString+')';
-  try
-    uConn.DataModule1.Qr.ExecSQL;
-  finally
-    uConn.DataModule1.Qr.Close;
-    estudante.Free;
-  end;
-end;
-
-procedure TFormEstudantesMain.LoadDataToGrid;
-
+procedure AtualizarGrid(StrGridFormEstudantesPT2: TStringGrid);
 var
   i, j: Integer;
   begin
@@ -91,4 +68,67 @@ var
       Inc(j);
     end;
   end;
+procedure TFormEstudantesMain.bFormEstudantesPT1CloseClick(Sender: TObject);
+begin
+  FormEstudantesMain.Close;
+end;
+
+procedure TFormEstudantesMain.bFormEstudantesPT3AdicionarClick(Sender: TObject);
+
+var estudante: TEstudante;
+
+begin
+  estudante:=TEstudante.Create;
+  estudante.setIDEstudante(StrToInt(eFormEstudantesID.Text));
+  estudante.setNomeEstudante(eFormEstudantesNome.Text);
+  uConn.DataModule1.Conn.Connected:=True;
+  uConn.DataModule1.Qr.SQL.Text:='INSERT INTO estudantes VALUES ('+estudante.getIDEstudante.ToString+', '+estudante.getNomeEstudante.QuotedString+')';
+  try
+    uConn.DataModule1.Qr.ExecSQL;
+  finally
+    uConn.DataModule1.Qr.Close;
+    estudante.Free;
+    eFormEstudantesID.Clear;
+    eFormEstudantesNome.Clear;
+    AtualizarGrid(StrGridFormEstudantesPT2);
+  end;
+end;
+
+
+procedure TFormEstudantesMain.bFormEstudantesPT3CancelarClick(Sender: TObject);
+begin
+
+  eFormEstudantesID.Clear;
+  eFormEstudantesNome.Clear;
+end;
+
+procedure TFormEstudantesMain.bFormEstudantesPT3ExcluirClick(Sender: TObject);
+var
+  LinhaSelecionada: Integer;
+  IdEstudanteExcluir: string;
+begin
+  LinhaSelecionada := FormEstudantesMain.StrGridFormEstudantesPT2.Row;
+  if (LinhaSelecionada > 0) then
+  begin
+    IdEstudanteExcluir := StrGridFormEstudantesPT2.Cells[1, LinhaSelecionada];
+    if MessageDlg('Tem certeza que deseja excluir o estudante com ID ' + IdEstudanteExcluir + '?', mtConfirmation, [mbYes, mbNo], 0) = mrYes then
+    begin
+      uConn.DataModule1.Qr.Close;
+      uConn.DataModule1.Qr.SQL.Text := 'DELETE FROM estudantes WHERE idestudante = :eid';
+      uConn.DataModule1.Qr.ParamByName('eid').AsInteger := StrToInt(IdEstudanteExcluir);
+      uConn.DataModule1.Qr.ExecSQL;
+      AtualizarGrid(StrGridFormEstudantesPT2);
+    end;
+  end
+  else
+  begin
+    MessageDlg('Selecione um estudante para excluir.', mtInformation, [mbOK], 0);
+  end;
+end;
+
+procedure TFormEstudantesMain.FormShow(Sender: TObject);
+begin
+  AtualizarGrid(StrGridFormEstudantesPT2);
+end;
 end.
+

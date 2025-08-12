@@ -1,0 +1,125 @@
+unit uFormEstudantes;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, Vcl.StdCtrls, Vcl.Grids,
+  Data.DB, Vcl.DBGrids, uConn, uEstudante;
+
+type
+  TFormEstudantesMain = class(TForm)
+    pFormEstudantesP: TPanel;
+    pFormEstudantesPT1: TPanel;
+    LNomeEstudante: TLabel;
+    LIDEstudante: TLabel;
+    eFormEstudantesNome: TEdit;
+    eFormEstudantesID: TEdit;
+    pFormEstudantesPT2: TPanel;
+    bFormEstudantesPT1Close: TButton;
+    pFormEstudantesPT3: TPanel;
+    bFormEstudantesPT3Salvar: TButton;
+    bFormEstudantesPT3Adicionar: TButton;
+    bFormEstudantesPT3Alterar: TButton;
+    bFormEstudantesPT3Excluir: TButton;
+    bFormEstudantesPT3Cancelar: TButton;
+    SBEstudantesPT2: TScrollBox;
+    StrGridFormEstudantesPT2: TStringGrid;
+    procedure bFormEstudantesPT1CloseClick(Sender: TObject);
+    procedure bFormEstudantesPT3AdicionarClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FormEstudantesMain: TFormEstudantesMain;
+
+implementation
+
+{$R *.dfm}
+procedure AtualizarGrid(StrGridFormEstudantesPT2: TStringGrid);
+var
+  i, j: Integer;
+  begin
+    uConn.DataModule1.Qr.Close;
+    uConn.DataModule1.Qr.SQL.Text := 'SELECT nomeestudante, idestudante from estudantes';
+    uConn.DataModule1.Qr.Open;
+    StrGridFormEstudantesPT2.RowCount:= uConn.DataModule1.Qr.RecordCount + 1;
+    StrGridFormEstudantesPT2.ColCount:= uConn.DataModule1.Qr.FieldCount;
+
+    for i := 0 to uConn.DataModule1.Qr.FieldCount - 1 do
+    begin
+      StrGridFormEstudantesPT2.Cells[i, 0] := uConn.DataModule1.Qr.Fields[i].FieldName;
+    end;
+
+    j := 1;
+    while not uConn.DataModule1.Qr.Eof do
+    begin
+      for i := 0 to uConn.DataModule1.Qr.FieldCount - 1 do
+      begin
+        StrGridFormEstudantesPT2.Cells[i, j] := uConn.DataModule1.Qr.Fields[i].AsString;
+      end;
+      uConn.DataModule1.Qr.Next;
+      Inc(j);
+    end;
+  end;
+procedure TFormEstudantesMain.bFormEstudantesPT1CloseClick(Sender: TObject);
+begin
+  FormEstudantesMain.Close;
+end;
+
+procedure TFormEstudantesMain.bFormEstudantesPT3AdicionarClick(Sender: TObject);
+
+var estudante: TEstudante;
+
+begin
+  estudante:=TEstudante.Create;
+  estudante.setIDEstudante(StrToInt(eFormEstudantesID.Text));
+  estudante.setNomeEstudante(eFormEstudantesNome.Text);
+  uConn.DataModule1.Conn.Connected:=True;
+  uConn.DataModule1.Qr.SQL.Text:='INSERT INTO estudantes VALUES ('+estudante.getIDEstudante.ToString+', '+estudante.getNomeEstudante.QuotedString+')';
+  try
+    uConn.DataModule1.Qr.ExecSQL;
+  finally
+    uConn.DataModule1.Qr.Close;
+    estudante.Free;
+    eFormEstudantesID.Clear;
+    eFormEstudantesNome.Clear;
+    AtualizarGrid(StrGridFormEstudantesPT2);
+  end;
+end;
+
+
+procedure TFormEstudantesMain.FormShow(Sender: TObject);
+begin
+var
+  i, j: Integer;
+  begin
+    uConn.DataModule1.Qr.Close;
+    uConn.DataModule1.Qr.SQL.Text := 'SELECT nomeestudante, idestudante from estudantes';
+    uConn.DataModule1.Qr.Open;
+    StrGridFormEstudantesPT2.RowCount:= uConn.DataModule1.Qr.RecordCount + 1;
+    StrGridFormEstudantesPT2.ColCount:= uConn.DataModule1.Qr.FieldCount;
+
+    for i := 0 to uConn.DataModule1.Qr.FieldCount - 1 do
+    begin
+      StrGridFormEstudantesPT2.Cells[i, 0] := uConn.DataModule1.Qr.Fields[i].FieldName;
+    end;
+
+    j := 1;
+    while not uConn.DataModule1.Qr.Eof do
+    begin
+      for i := 0 to uConn.DataModule1.Qr.FieldCount - 1 do
+      begin
+        StrGridFormEstudantesPT2.Cells[i, j] := uConn.DataModule1.Qr.Fields[i].AsString;
+      end;
+      uConn.DataModule1.Qr.Next;
+      Inc(j);
+    end;
+  end;
+end;
+end.
+
