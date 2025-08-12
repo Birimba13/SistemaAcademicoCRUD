@@ -81,10 +81,9 @@ var estudante: TEstudante;
 
 begin
   estudante:=TEstudante.Create;
-  estudante.setCPFEstudante(StrToInt(eFormEstudantesCPF.Text));
   estudante.setNomeEstudante(eFormEstudantesNome.Text);
   uConn.DataModule1.Conn.Connected:=True;
-  uConn.DataModule1.Qr.SQL.Text:='INSERT INTO estudantes (cpfestudante, nomeestudante) VALUES ('+estudante.getCPFEstudante.ToString+', '+estudante.getNomeEstudante.QuotedString+')';
+  uConn.DataModule1.Qr.SQL.Text:='INSERT INTO estudantes (cpfestudante, nomeestudante) VALUES ('+eFormEstudantesCPF.Text+', '+estudante.getNomeEstudante.QuotedString+')';
   try
     uConn.DataModule1.Qr.ExecSQL;
   finally

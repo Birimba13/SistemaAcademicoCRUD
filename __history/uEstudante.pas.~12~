@@ -1,0 +1,43 @@
+unit uEstudante;
+
+interface
+
+uses
+  System.sysUtils, System.Classes, System.Generics.Collections;
+
+type
+  TEstudante = class
+    protected
+      CPFEstudante: String;
+      NomeEstudante: String;
+    public
+      function getCPFEstudante:Integer;
+      procedure setCPFEstudante(aCPF:Integer);
+      function getNomeEstudante:String;
+      procedure setNomeEstudante(aNome:String);
+  end;
+
+implementation
+
+function TEstudante.getCPFEstudante: Integer;
+begin
+  Result:=Self.CPFEstudante;
+end;
+
+function TEstudante.getNomeEstudante: String;
+begin
+  Result:=Self.NomeEstudante;
+end;
+
+
+procedure TEstudante.setCPFEstudante(aCPF: Integer);
+begin
+  Self.CPFEstudante:=aCPF;
+end;
+
+procedure TEstudante.setNomeEstudante(aNome: String);
+begin
+  Self.NomeEstudante:=aNome;
+end;
+
+end.

@@ -8,7 +8,7 @@ uses
 type
   TEstudante = class
     protected
-      CPFEstudante: Integer;
+      CPFEstudante: LongInt;
       NomeEstudante: String;
     public
       function getCPFEstudante:Integer;
