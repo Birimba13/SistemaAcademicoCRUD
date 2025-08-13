@@ -16,7 +16,6 @@ object FormPrincipalMain: TFormPrincipalMain
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
-  OnCreate = FormCreate
   TextHeight = 15
   object PanelMain: TPanel
     Left = 0
@@ -56,7 +55,7 @@ object FormPrincipalMain: TFormPrincipalMain
         AlignWithMargins = True
         Left = 11
         Top = 31
-        Width = 187
+        Width = 288
         Height = 15
         Margins.Left = 10
         Margins.Top = 30
@@ -65,6 +64,7 @@ object FormPrincipalMain: TFormPrincipalMain
         Align = alTop
         Alignment = taCenter
         Caption = 'Clique para acessar a '#225'rea desejada.'
+        ExplicitWidth = 187
       end
       object bFormPrincipalSair: TButton
         AlignWithMargins = True

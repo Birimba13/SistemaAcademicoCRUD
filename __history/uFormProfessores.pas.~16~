@@ -1,0 +1,168 @@
+unit uFormProfessores;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.Grids, uConn, uProfessores, Data.DB;
+
+type
+  TFormProfessoresMain = class(TForm)
+    pFormProfessorP: TPanel;
+    pFormProfessorPT1: TPanel;
+    LNomeProfessor: TLabel;
+    LCPFProfessores: TLabel;
+    eFormProfessorNome: TEdit;
+    eFormProfessorCPF: TEdit;
+    bFormProfessorPT1Close: TButton;
+    pFormProfessorPT2: TPanel;
+    pFormProfessorPT3: TPanel;
+    bFormProfessorPT3Salvar: TButton;
+    bFormProfessorPT3Adicionar: TButton;
+    bFormProfessorPT3Alterar: TButton;
+    bFormProfessorPT3Excluir: TButton;
+    bFormProfessorPT3Cancelar: TButton;
+    SBProfessoresPT2: TScrollBox;
+    StrGridFormProfessoresPT2: TStringGrid;
+    procedure bFormProfessorPT1CloseClick(Sender: TObject);
+    procedure bFormProfessorPT3AdicionarClick(Sender: TObject);
+    procedure bFormProfessorPT3ExcluirClick(Sender: TObject);
+    procedure bFormProfessorPT3CancelarClick(Sender: TObject);
+    procedure bFormProfessorPT3AlterarClick(Sender: TObject);
+    procedure bFormProfessorPT3SalvarClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FormProfessoresMain: TFormProfessoresMain;
+
+implementation
+
+{$R *.dfm}
+
+procedure AtualizarGrid(StrGridFormProfessoresPT2: TStringGrid);
+var
+  i, j: Integer;
+begin
+  uConn.DataModule1.Qr.Close;
+  uConn.DataModule1.Qr.SQL.Text := 'SELECT nomeprofessor, idprofessor, cpfprofessor from professores';
+  uConn.DataModule1.Qr.Open;
+  StrGridFormProfessoresPT2.RowCount := uConn.DataModule1.Qr.RecordCount + 1;
+  StrGridFormProfessoresPT2.ColCount := uConn.DataModule1.Qr.FieldCount;
+
+  for i := 0 to uConn.DataModule1.Qr.FieldCount - 1 do
+  begin
+    StrGridFormProfessoresPT2.Cells[i, 0] := uConn.DataModule1.Qr.Fields[i].FieldName;
+  end;
+
+  j := 1;
+  while not uConn.DataModule1.Qr.Eof do
+  begin
+    for i := 0 to uConn.DataModule1.Qr.FieldCount - 1 do
+    begin
+      StrGridFormProfessoresPT2.Cells[i, j] := uConn.DataModule1.Qr.Fields[i].AsString;
+    end;
+    uConn.DataModule1.Qr.Next;
+    Inc(j);
+  end;
+end;
+
+procedure TFormProfessoresMain.bFormProfessorPT1CloseClick(Sender: TObject);
+begin
+  FormProfessoresMain.Close;
+end;
+
+procedure TFormProfessoresMain.bFormProfessorPT3AdicionarClick(Sender: TObject);
+var
+  professor: TProfessor;
+begin
+  professor := TProfessor.Create;
+  professor.setNomeProfessor(eFormProfessorNome.Text);
+  professor.setIdProfessor(StrToInt(eFormProfessorID.Text));
+  professor.setCPFProfessor(eFormProfessorCPF.Text);
+  uConn.DataModule1.Conn.Connected := True;
+  uConn.DataModule1.Qr.SQL.Text := 'INSERT INTO professores (nomeprofessor, idprofessor, cpfprofessor) VALUES (' + professor.getNomeProfessor.QuotedString + ',' + professor.getIdProfessor.ToString + ',' + professor.getCPFProfessor.QuotedString + ')';
+  try
+    uConn.DataModule1.Qr.ExecSQL;
+  finally
+    uConn.DataModule1.Qr.Close;
+    professor.Free;
+    eFormProfessorID.Clear;
+    eFormProfessorCPF.Clear;
+    eFormProfessorNome.Clear;
+    AtualizarGrid(StrGridFormProfessoresPT2);
+  end;
+end;
+
+procedure TFormProfessoresMain.bFormProfessorPT3AlterarClick(Sender: TObject);
+var
+  LinhaSelecionada: Integer;
+  IdProfessorAtualizar: String;
+begin
+  LinhaSelecionada := StrGridFormProfessoresPT2.Row;
+  if (LinhaSelecionada > 0) then
+  begin
+    eFormProfessorNome.Text := StrGridFormProfessoresPT2.Cells[0, LinhaSelecionada];
+    eFormProfessorID.Text := StrGridFormProfessoresPT2.Cells[1, LinhaSelecionada];
+    eFormProfessorCPF.Text := StrGridFormProfessoresPT2.Cells[2, LinhaSelecionada];
+  end;
+end;
+
+procedure TFormProfessoresMain.bFormProfessorPT3CancelarClick(Sender: TObject);
+begin
+  pFormProfessorP.SetFocus;
+  eFormProfessorID.Clear;
+  eFormProfessorCPF.Clear;
+  eFormProfessorNome.Clear;
+end;
+
+procedure TFormProfessoresMain.bFormProfessorPT3ExcluirClick(Sender: TObject);
+var
+  LinhaSelecionada: Integer;
+  IdProfessorExcluir: string;
+begin
+  LinhaSelecionada := FormProfessoresMain.StrGridFormProfessoresPT2.Row;
+  if (LinhaSelecionada > 0) then
+  begin
+    IdProfessorExcluir := StrGridFormProfessoresPT2.Cells[1, LinhaSelecionada];
+    if MessageDlg('Tem certeza que deseja excluir o professor com ID ' + IdProfessorExcluir + '?', mtConfirmation, [mbYes, mbNo], 0) = mrYes then
+    begin
+      uConn.DataModule1.Qr.Close;
+      uConn.DataModule1.Qr.SQL.Text := 'DELETE FROM professores WHERE idprofessor = :eid';
+      uConn.DataModule1.Qr.ParamByName('eid').AsInteger := StrToInt(IdProfessorExcluir);
+      uConn.DataModule1.Qr.ExecSQL;
+      AtualizarGrid(StrGridFormProfessoresPT2);
+    end;
+  end
+  else
+  begin
+    MessageDlg('Selecione um professor para excluir.', mtInformation, [mbOK], 0);
+  end;
+end;
+
+procedure TFormProfessoresMain.bFormProfessorPT3SalvarClick(Sender: TObject);
+var
+  IdProfessorAtualizar: Integer;
+begin
+  IdProfessorAtualizar := StrToInt(StrGridFormProfessoresPT2.Cells[1, StrGridFormProfessoresPT2.Row]);
+  uConn.DataModule1.Qr.Close;
+  uConn.DataModule1.Qr.SQL.Text := 'UPDATE professores SET nomeprofessor = :novoNome, cpfprofessor = :cpf WHERE idprofessor = :eid';
+  uConn.DataModule1.Qr.ParamByName('eid').AsInteger := IdProfessorAtualizar;
+  uConn.DataModule1.Qr.ParamByName('novoNome').AsString := eFormProfessorNome.Text;
+  uConn.DataModule1.Qr.ParamByName('cpf').AsString := eFormProfessorCPF.Text;
+  uConn.DataModule1.Qr.ExecSQL;
+  eFormProfessorID.Text := '';
+  eFormProfessorCPF.Text := '';
+  eFormProfessorNome.Text := '';
+  AtualizarGrid(StrGridFormProfessoresPT2);
+end;
+
+procedure TFormProfessoresMain.FormShow(Sender: TObject);
+begin
+  AtualizarGrid(StrGridFormProfessoresPT2);
+end;
+
+end.

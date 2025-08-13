@@ -23,7 +23,6 @@ type
     procedure bFormPrincipalDisciplinasClick(Sender: TObject);
     procedure bFormPrincipalTurmasClick(Sender: TObject);
     procedure bFormPrincipalMatriculasClick(Sender: TObject);
-    procedure FormCreate(Sender: TObject);
   private
 
     Data: TDataModule1;
@@ -68,23 +67,6 @@ end;
 procedure TFormPrincipalMain.bFormPrincipalTurmasClick(Sender: TObject);
 begin
   FormTurmasMain.Show;
-end;
-
-procedure TFormPrincipalMain.FormCreate(Sender: TObject);
-var estudante:TEstudante;
-begin
-  Data:=uConn.DataModule1;
-  Data.Conn.Connected:=True;
-  estudante:=TEstudante.Create;
-  Data.Qr.SQL.Text:='SELECT * FROM estudantes WHERE IDEstudante=1';
-  Data.Qr.Active:=True;
-  Data.Qr.Open(Data.Qr.SQL.Text);
-  try
-    estudante.setCPFEstudante(Data.Qr.FieldByName('CPFEstudante').AsInteger);
-    estudante.setNomeEstudante(Data.Qr.FieldByName('NomeEstudante').AsString);
-  finally
-    Data.Qr.Close;
-  end;
 end;
 
 end.

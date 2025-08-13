@@ -104,7 +104,8 @@ var
   NovoNome: String;
 begin
   LinhaSelecionada := StrGridFormEstudantesPT2.Row;
-  if (LinhaSelecionada > 0) then begin
+  if (LinhaSelecionada > 0) then
+  begin
     eFormEstudantesNome.Text:= StrGridFormEstudantesPT2.Cells[0, LinhaSelecionada];
     eFormEstudantesCPF.Text:= StrGridFormEstudantesPT2.Cells[2, LinhaSelecionada];
   end;

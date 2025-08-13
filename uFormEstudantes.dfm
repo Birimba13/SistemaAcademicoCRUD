@@ -38,7 +38,6 @@ object FormEstudantesMain: TFormEstudantesMain
       Height = 122
       Align = alTop
       TabOrder = 0
-      ExplicitTop = -2
       object LNomeEstudante: TLabel
         Left = 24
         Top = 29
@@ -104,8 +103,6 @@ object FormEstudantesMain: TFormEstudantesMain
           ColCount = 3
           DefaultColWidth = 300
           TabOrder = 0
-          ExplicitLeft = -3
-          ExplicitTop = -3
         end
       end
     end
@@ -125,8 +122,6 @@ object FormEstudantesMain: TFormEstudantesMain
       Padding.Right = 5
       Padding.Bottom = 5
       TabOrder = 2
-      ExplicitLeft = 127
-      ExplicitTop = 528
       object bFormEstudantesPT3Salvar: TButton
         AlignWithMargins = True
         Left = 914
@@ -148,7 +143,6 @@ object FormEstudantesMain: TFormEstudantesMain
         Caption = 'Adicionar'
         TabOrder = 1
         OnClick = bFormEstudantesPT3AdicionarClick
-        ExplicitTop = 5
       end
       object bFormEstudantesPT3Alterar: TButton
         AlignWithMargins = True

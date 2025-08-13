@@ -1,0 +1,150 @@
+unit uFormDisciplinas;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Grids, Vcl.StdCtrls, Vcl.ExtCtrls, Data.DB, uConn;
+
+type
+  TFormDisciplinasMain = class(TForm)
+    pFormDisciplinasP: TPanel;
+    pFormDisciplinasPT1: TPanel;
+    LNomeDisciplinas: TLabel;
+    eFormDisciplinasNome: TEdit;
+    bFormDisciplinasPT1Close: TButton;
+    pFormDisciplinasPT2: TPanel;
+    pFormDisciplinasPT3: TPanel;
+    bFormDisciplinasPT3Salvar: TButton;
+    bFormDisciplinasPT3Adicionar: TButton;
+    bFormDisciplinasPT3Alterar: TButton;
+    bFormDisciplinasPT3Excluir: TButton;
+    bFormDisciplinasPT3Cancelar: TButton;
+    SBDisciplinasPT2: TScrollBox;
+    StrGridFormDisciplinasPT2: TStringGrid;
+    procedure bFormDisciplinasPT1CloseClick(Sender: TObject);
+    procedure bFormDisciplinasPT3AdicionarClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure bFormDisciplinasPT3ExcluirClick(Sender: TObject);
+    procedure bFormDisciplinasPT3CancelarClick(Sender: TObject);
+    procedure bFormDisciplinasPT3AlterarClick(Sender: TObject);
+    procedure bFormDisciplinasPT3SalvarClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  FormDisciplinasMain: TFormDisciplinasMain;
+
+implementation
+
+{$R *.dfm}
+
+procedure AtualizarGrid(StrGridFormDisciplinasPT2: TStringGrid);
+var
+  i, j: Integer;
+begin
+  uConn.DataModule1.Qr.Close;
+  uConn.DataModule1.Qr.SQL.Text := 'SELECT nomedisciplina, iddisciplina from disciplinas';
+  uConn.DataModule1.Qr.Open;
+  StrGridFormDisciplinasPT2.RowCount := uConn.DataModule1.Qr.RecordCount + 1;
+  StrGridFormDisciplinasPT2.ColCount := uConn.DataModule1.Qr.FieldCount;
+
+  for i := 0 to uConn.DataModule1.Qr.FieldCount - 1 do
+  begin
+    StrGridFormDisciplinasPT2.Cells[i, 0] := uConn.DataModule1.Qr.Fields[i].FieldName;
+  end;
+
+  j := 1;
+  while not uConn.DataModule1.Qr.Eof do
+  begin
+    for i := 0 to uConn.DataModule1.Qr.FieldCount - 1 do
+    begin
+      StrGridFormDisciplinasPT2.Cells[i, j] := uConn.DataModule1.Qr.Fields[i].AsString;
+    end;
+    uConn.DataModule1.Qr.Next;
+    Inc(j);
+  end;
+end;
+
+procedure TFormDisciplinasMain.bFormDisciplinasPT1CloseClick(Sender: TObject);
+begin
+  FormDisciplinasMain.Close;
+end;
+
+procedure TFormDisciplinasMain.bFormDisciplinasPT3AdicionarClick(Sender: TObject);
+begin
+  uConn.DataModule1.Conn.Connected := True;
+  uConn.DataModule1.Qr.SQL.Text := 'INSERT INTO disciplinas (nomedisciplina) VALUES ('+QuotedStr(eFormDisciplinasNome.Text)+')';
+  try
+    uConn.DataModule1.Qr.ExecSQL;
+  finally
+    uConn.DataModule1.Qr.Close;
+    eFormDisciplinasNome.Clear;
+    AtualizarGrid(StrGridFormDisciplinasPT2);
+  end;
+end;
+
+procedure TFormDisciplinasMain.bFormDisciplinasPT3AlterarClick(Sender: TObject);
+var
+  LinhaSelecionada: Integer;
+begin
+  LinhaSelecionada := StrGridFormDisciplinasPT2.Row;
+  if (LinhaSelecionada > 0) then
+  begin
+    eFormDisciplinasNome.Text := StrGridFormDisciplinasPT2.Cells[0, LinhaSelecionada];
+  end;
+end;
+
+procedure TFormDisciplinasMain.bFormDisciplinasPT3CancelarClick(Sender: TObject);
+begin
+  pFormDisciplinasP.SetFocus;
+  eFormDisciplinasNome.Clear;
+end;
+
+procedure TFormDisciplinasMain.bFormDisciplinasPT3ExcluirClick(Sender: TObject);
+var
+  LinhaSelecionada: Integer;
+  CodigoDisciplinaExcluir: string;
+begin
+  LinhaSelecionada := FormDisciplinasMain.StrGridFormDisciplinasPT2.Row;
+  if (LinhaSelecionada > 0) then
+  begin
+    CodigoDisciplinaExcluir := StrGridFormDisciplinasPT2.Cells[1, LinhaSelecionada];
+    if MessageDlg('Tem certeza que deseja excluir a disciplina com código ' + CodigoDisciplinaExcluir + '?', mtConfirmation, [mbYes, mbNo], 0) = mrYes then
+    begin
+      uConn.DataModule1.Qr.Close;
+      uConn.DataModule1.Qr.SQL.Text := 'DELETE FROM disciplinas WHERE iddisciplina = :ecode';
+      uConn.DataModule1.Qr.ParamByName('ecode').AsString := CodigoDisciplinaExcluir;
+      uConn.DataModule1.Qr.ExecSQL;
+      AtualizarGrid(StrGridFormDisciplinasPT2);
+    end;
+  end
+  else
+  begin
+    MessageDlg('Selecione uma disciplina para excluir.', mtInformation, [mbOK], 0);
+  end;
+end;
+
+procedure TFormDisciplinasMain.bFormDisciplinasPT3SalvarClick(Sender: TObject);
+var
+  CodigoDisciplinaAtualizar: string;
+begin
+  CodigoDisciplinaAtualizar := StrGridFormDisciplinasPT2.Cells[1, StrGridFormDisciplinasPT2.Row];
+  uConn.DataModule1.Qr.Close;
+  uConn.DataModule1.Qr.SQL.Text := 'UPDATE disciplinas SET nomedisciplina = :novoNome = : WHERE iddisciplina = :ecode';
+  uConn.DataModule1.Qr.ParamByName('ecode').AsString := CodigoDisciplinaAtualizar;
+  uConn.DataModule1.Qr.ParamByName('novoNome').AsString := eFormDisciplinasNome.Text;
+  uConn.DataModule1.Qr.ExecSQL;
+  eFormDisciplinasNome.Text := '';
+  AtualizarGrid(StrGridFormDisciplinasPT2);
+end;
+
+procedure TFormDisciplinasMain.FormShow(Sender: TObject);
+begin
+  AtualizarGrid(StrGridFormDisciplinasPT2);
+end;
+
+end.

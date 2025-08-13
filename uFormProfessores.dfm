@@ -13,6 +13,7 @@ object FormProfessoresMain: TFormProfessoresMain
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
+  OnShow = FormShow
   TextHeight = 15
   object pFormProfessorP: TPanel
     AlignWithMargins = True
@@ -30,7 +31,7 @@ object FormProfessoresMain: TFormProfessoresMain
       Left = 1
       Top = 1
       Width = 998
-      Height = 162
+      Height = 120
       Align = alTop
       TabOrder = 0
       object LNomeProfessor: TLabel
@@ -40,16 +41,9 @@ object FormProfessoresMain: TFormProfessoresMain
         Height = 15
         Caption = 'Nome do Professor:'
       end
-      object LIDProfessor: TLabel
-        Left = 24
-        Top = 75
-        Width = 83
-        Height = 15
-        Caption = 'ID do Professor:'
-      end
       object LCPFProfessores: TLabel
         Left = 24
-        Top = 121
+        Top = 73
         Width = 93
         Height = 15
         Caption = 'CPF do Professor:'
@@ -63,8 +57,8 @@ object FormProfessoresMain: TFormProfessoresMain
         TextHint = 'Escreva o nome completo'
       end
       object eFormProfessorCPF: TEdit
-        Left = 123
-        Top = 118
+        Left = 135
+        Top = 70
         Width = 121
         Height = 23
         NumbersOnly = True
@@ -80,37 +74,33 @@ object FormProfessoresMain: TFormProfessoresMain
         TabOrder = 2
         OnClick = bFormProfessorPT1CloseClick
       end
-      object eFormProfessorID: TEdit
-        Left = 113
-        Top = 72
-        Width = 121
-        Height = 23
-        NumbersOnly = True
-        TabOrder = 3
-        TextHint = 'XXXXXX'
-      end
     end
     object pFormProfessorPT2: TPanel
       Left = 1
-      Top = 163
+      Top = 121
       Width = 998
-      Height = 436
+      Height = 478
       Align = alClient
       TabOrder = 1
+      ExplicitTop = 163
+      ExplicitHeight = 436
       object SBProfessoresPT2: TScrollBox
         Left = 1
         Top = 1
         Width = 996
-        Height = 434
+        Height = 476
         Align = alClient
         TabOrder = 0
+        ExplicitHeight = 434
         object StrGridFormProfessoresPT2: TStringGrid
           Left = 0
           Top = 0
           Width = 992
-          Height = 430
+          Height = 472
           Align = alClient
           TabOrder = 0
+          ExplicitTop = 3
+          ExplicitHeight = 427
           RowHeights = (
             24
             24
@@ -144,6 +134,7 @@ object FormProfessoresMain: TFormProfessoresMain
         Align = alRight
         Caption = 'Salvar'
         TabOrder = 0
+        OnClick = bFormProfessorPT3SalvarClick
       end
       object bFormProfessorPT3Adicionar: TButton
         AlignWithMargins = True
@@ -165,6 +156,7 @@ object FormProfessoresMain: TFormProfessoresMain
         Align = alRight
         Caption = 'Alterar'
         TabOrder = 2
+        OnClick = bFormProfessorPT3AlterarClick
       end
       object bFormProfessorPT3Excluir: TButton
         AlignWithMargins = True
@@ -175,6 +167,7 @@ object FormProfessoresMain: TFormProfessoresMain
         Align = alRight
         Caption = 'Excluir'
         TabOrder = 3
+        OnClick = bFormProfessorPT3ExcluirClick
       end
       object bFormProfessorPT3Cancelar: TButton
         AlignWithMargins = True
@@ -185,6 +178,7 @@ object FormProfessoresMain: TFormProfessoresMain
         Align = alRight
         Caption = 'Cancelar'
         TabOrder = 4
+        OnClick = bFormProfessorPT3CancelarClick
       end
     end
   end

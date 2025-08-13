@@ -11,6 +11,7 @@ object FormDisciplinasMain: TFormDisciplinasMain
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
+  OnShow = FormShow
   TextHeight = 15
   object pFormDisciplinasP: TPanel
     AlignWithMargins = True
@@ -28,7 +29,7 @@ object FormDisciplinasMain: TFormDisciplinasMain
       Left = 1
       Top = 1
       Width = 998
-      Height = 122
+      Height = 72
       Align = alTop
       TabOrder = 0
       object LNomeDisciplinas: TLabel
@@ -38,13 +39,6 @@ object FormDisciplinasMain: TFormDisciplinasMain
         Height = 15
         Caption = 'Nome da Disciplina:'
       end
-      object LCdgDisciplinas: TLabel
-        Left = 24
-        Top = 77
-        Width = 112
-        Height = 15
-        Caption = 'C'#243'digo da Disciplina:'
-      end
       object eFormDisciplinasNome: TEdit
         Left = 136
         Top = 26
@@ -53,43 +47,35 @@ object FormDisciplinasMain: TFormDisciplinasMain
         TabOrder = 0
         TextHint = ' Escreva o nome da disciplina'
       end
-      object eFormDisciplinasCdg: TEdit
-        Left = 142
-        Top = 74
-        Width = 121
-        Height = 23
-        TabOrder = 1
-        TextHint = 'XXXXXX'
-      end
       object bFormDisciplinasPT1Close: TButton
         Left = 888
         Top = 20
         Width = 91
         Height = 25
         Caption = 'Voltar ao menu'
-        TabOrder = 2
+        TabOrder = 1
         OnClick = bFormDisciplinasPT1CloseClick
       end
     end
     object pFormDisciplinasPT2: TPanel
       Left = 1
-      Top = 123
+      Top = 73
       Width = 998
-      Height = 403
+      Height = 453
       Align = alClient
       TabOrder = 1
       object SBDisciplinasPT2: TScrollBox
         Left = 1
         Top = 1
         Width = 996
-        Height = 401
+        Height = 451
         Align = alClient
         TabOrder = 0
         object StrGridFormDisciplinasPT2: TStringGrid
           Left = 0
           Top = 0
           Width = 992
-          Height = 397
+          Height = 447
           Align = alClient
           TabOrder = 0
           ColWidths = (
@@ -126,6 +112,7 @@ object FormDisciplinasMain: TFormDisciplinasMain
         Align = alRight
         Caption = 'Salvar'
         TabOrder = 0
+        OnClick = bFormDisciplinasPT3SalvarClick
       end
       object bFormDisciplinasPT3Adicionar: TButton
         AlignWithMargins = True
@@ -136,6 +123,7 @@ object FormDisciplinasMain: TFormDisciplinasMain
         Align = alRight
         Caption = 'Adicionar'
         TabOrder = 1
+        OnClick = bFormDisciplinasPT3AdicionarClick
       end
       object bFormDisciplinasPT3Alterar: TButton
         AlignWithMargins = True
@@ -146,6 +134,7 @@ object FormDisciplinasMain: TFormDisciplinasMain
         Align = alRight
         Caption = 'Alterar'
         TabOrder = 2
+        OnClick = bFormDisciplinasPT3AlterarClick
       end
       object bFormDisciplinasPT3Excluir: TButton
         AlignWithMargins = True
@@ -156,6 +145,7 @@ object FormDisciplinasMain: TFormDisciplinasMain
         Align = alRight
         Caption = 'Excluir'
         TabOrder = 3
+        OnClick = bFormDisciplinasPT3ExcluirClick
       end
       object bFormDisciplinasPT3Cancelar: TButton
         AlignWithMargins = True
@@ -166,6 +156,7 @@ object FormDisciplinasMain: TFormDisciplinasMain
         Align = alRight
         Caption = 'Cancelar'
         TabOrder = 4
+        OnClick = bFormDisciplinasPT3CancelarClick
       end
     end
   end
